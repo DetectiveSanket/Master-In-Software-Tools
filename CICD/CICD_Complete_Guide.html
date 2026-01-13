@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Comprehensive Guide</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
+    <style>
+        body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+        @media (max-width: 767px) {
+            body {
+                padding: 15px;
+            }
+        }
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                padding: 0;
+                max-width: 100%;
+            }
+            .markdown-body {
+                padding: 20px;
+                max-width: 100%;
+            }
+        }
+        /* Center mermaid diagrams */
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print" style="background: #e1f5fe; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #0288d1;">
+        <h3 style="margin-top: 0;">🖨️ How to Save as PDF</h3>
+        <p>This document is optimized for printing.</p>
+        <ol>
+            <li>Wait for all diagrams to load.</li>
+            <li>Press <strong>Ctrl + P</strong> (or Cmd + P on Mac).</li>
+            <li>Select <strong>"Save as PDF"</strong> as the destination.</li>
+            <li>Click <strong>Save</strong>.</li>
+        </ol>
+    </div>
+
+    <div id="content" class="markdown-body"></div>
+
+    <!-- Hidden Markdown Content -->
+    <textarea id="markdown-source" style="display: none;">
+# CI/CD: A Comprehensive Guide
+
+## 1. Introduction to CI/CD
+
+**CI/CD** stands for **Continuous Integration** and **Continuous Delivery/Deployment**. It is a set of operating principles and practices that enable application development teams to deliver code changes more frequently and reliably.
+
+<mark>In the modern DevOps landscape, CI/CD is the backbone of software delivery, automating the process of building, testing, and deploying applications.</mark>
+
+### Why it Matters
+- **Speed**: Faster time to market.
+- **Quality**: Automated testing catches bugs early.
+- **Reliability**: Consistent deployment processes reduce errors.
+- **Collaboration**: Reduces integration conflicts in teams.
+
+---
+
+## 2. Traditional vs. Modern Development
+
+Before CI/CD, software development was often a manual, error-prone process.
+
+### Traditional Development (The "Waterfall" Era)
+- **Manual Builds**: Developers manually compiled code.
+- **Late Testing**: Testing happened only after all development was "complete".
+- **Integration Hell**: Merging code from multiple developers at the end of a cycle caused massive conflicts.
+- **Slow Releases**: Deployments happened weeks or months apart.
+- **Fear of Deployment**: Deployments were risky and often broke production.
+
+### Modern Development (CI/CD)
+- **Automated Builds**: Code is built automatically on every commit.
+- **Continuous Testing**: Tests run constantly.
+- **Continuous Integration**: Code is merged frequently (daily or hourly).
+- **Fast Releases**: Deployments can happen multiple times a day.
+- **Confidence**: Automated checks ensure safety.
+
+<div class="mermaid">
+graph TB
+    subgraph TRAD ["Traditional Development"]
+        A[Dev writes code] --> B[Wait for weeks]
+        B --> C[Manual Merge]
+        C --> D{Integration Conflicts?}
+        D -- Yes --> E[Fix Conflicts vs Days]
+        D -- No --> F[Manual Build]
+        F --> G[Manual Test]
+        G --> H[Manual Deploy]
+    end
+
+    subgraph CICD ["CI/CD Approach"]
+        AA[Dev writes code] --> BB[Push to Repo]
+        BB --> CC[Automated CI Pipeline]
+        CC --> DD[Build and Test]
+        DD --> EE[Automated Deploy]
+    end
+
+    style A fill:#ffcccc
+    style B fill:#ffcccc
+    style C fill:#ffcccc
+    style D fill:#ffcccc
+    style E fill:#ffcccc
+    style F fill:#ffcccc
+    style G fill:#ffcccc
+    style H fill:#ffcccc
+
+    style AA fill:#ccffcc
+    style BB fill:#ccffcc
+    style CC fill:#ccffcc
+    style DD fill:#ccffcc
+    style EE fill:#ccffcc
+</div>
+
+---
+
+## 3. Continuous Integration (CI)
+
+**Continuous Integration (CI)** is the practice of automating the integration of code changes from multiple contributors into a single software project.
+
+### Key Concepts
+- **Version Control**: All code lives in a central repository (like GitHub).
+- **Automated Build**: The system compiles the code to ensure it's valid.
+- **Automated Testing**: Unit tests and integration tests run to verify logic.
+- **Early Detection**: If a build fails, the developer is notified immediately.
+
+<div class="mermaid">
+sequenceDiagram
+    participant Dev as Developer
+    participant Repo as Source Code - GitHub
+    participant CI as CI Server - GitHub Actions or Jenkins
+    
+    Dev->>Repo: Push Code (git push)
+    Repo->>CI: Trigger Webhook
+    activate CI
+    CI->>CI: Checkout Code
+    CI->>CI: Install Dependencies
+    CI->>CI: Run Build
+    CI->>CI: Run Unit Tests
+    
+    alt Build or Test Fails
+        CI-->>Dev: ❌ Notify Failure (Email/Slack)
+    else Build or Test Passes
+        CI-->>Dev: ✅ Notify Success
+        CI->>Repo: Mark Commit as Verified
+    end
+    deactivate CI
+</div>
+
+---
+
+## 4. Continuous Delivery vs. Continuous Deployment (CD)
+
+The "CD" in CI/CD can mean two different things depending on the level of automation.
+
+### Continuous Delivery
+- Automates the release process up to the point of deployment.
+- **Staging**: Code is automatically deployed to a staging environment.
+- **Manual Approval**: A human must approve the final deployment to Production.
+- **Use Case**: Regulated industries (Banking, Healthcare) where sign-off is legally required.
+
+### Continuous Deployment
+- Fully automates the entire pipeline.
+- **No Human Intervention**: If tests pass, the code goes straight to Production.
+- **Speed**: The fastest way to get features to users.
+- **Use Case**: SaaS products, e-commerce, social media platforms.
+
+<div class="mermaid">
+graph LR
+    subgraph CI_Flow ["CI Continuous Integration"]
+        Code[Code Commit] --> Build[Build]
+        Build --> Test[Unit Tests]
+    end
+
+    subgraph CD_Low ["Continuous Delivery"]
+        Test --> Stage[Deploy to Staging]
+        Stage --> Manual{Manual Approval?}
+        Manual -- Yes --> Prod1[Deploy to Production]
+    end
+
+    subgraph CD_High ["Continuous Deployment"]
+        Test2[Unit Tests] --> Stage2[Deploy to Staging]
+        Stage2 --> AutoTest[Integration Tests]
+        AutoTest -- Pass --> Prod2[Deploy to Production]
+    end
+
+    style Manual fill:#ffdd99,stroke:#f96
+    style Prod1 fill:#99ff99
+    style Prod2 fill:#99ff99
+</div>
+
+---
+
+## 5. The Complete CI/CD Pipeline
+
+A typical pipeline consists of several distinct stages.
+
+1. **Source**: Developer commits code.
+2. **Build**: Compile code, build docker images, create artifacts (JAR, EXE, etc.).
+3. **Test**: Run unit tests, code quality checks (linting), and security scans.
+4. **Staging**: Deploy to a pre-production environment that mimics production.
+5. **Production**: Deploy to the live environment for end users.
+
+<div class="mermaid">
+flowchart LR
+    subgraph Source
+        A[Git Push]
+    end
+    
+    subgraph Build_Stage
+        B[Compile Code]
+        C[Build Docker Image]
+    end
+    
+    subgraph Test_Stage
+        D[Unit Tests]
+        E[Code Linting]
+        F[Security Scan]
+    end
+    
+    subgraph Deploy_Staging
+        G[Deploy to Staging]
+        H[Integration Tests]
+        I[User Acceptance Test]
+    end
+    
+    subgraph Deploy_Production
+        J{Approval?}
+        K[Deploy to Prod]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J -- Yes --> K
+</div>
+
+---
+
+## 6. CI/CD Tools Ecosystem
+
+There are many tools available, but they generally fall into a few categories.
+
+- **Cloud-Native**: GitHub Actions, GitLab CI (Integrated with repo).
+- **Self-Hosted/Traditional**: Jenkins (Highly customizable, open source).
+- **SaaS Providers**: CircleCI, TravisCI (Easy setup, managed infrastructure).
+
+<div class="mermaid">
+mindmap
+  root((CI/CD Tools))
+    GitHub Actions
+      Integrated with GitHub
+      YAML based
+      Huge Marketplace
+    Jenkins
+      Open Source
+      Plugin Ecosystem
+      Steep Learning Curve
+    GitLab CI
+      All-in-one DevOps
+      Built-in Container Registry
+    CircleCI
+      Fast Performance
+      Easy Configuration
+    TravisCI
+      Pioneer in CI
+      Simple for Open Source
+    Bamboo
+      Atlassian Stack
+      Jira Integration
+</div>
+
+---
+
+## 7. Deployment Strategies
+
+How you deploy is just as important as what you deploy. Different strategies help minimize downtime and risk.
+
+### A. Blue-Green Deployment
+- **Concept**: Maintain two identical environments (Blue and Green).
+- **Blue**: Current live version.
+- **Green**: New version.
+- **Switch**: Once Green is tested and ready, the router/load balancer switches all traffic from Blue to Green instantly.
+- **Rollback**: Instant. Just switch the router back to Blue.
+
+<div class="mermaid">
+graph TB
+    User((User Traffic))
+    LB[Load Balancer / Router]
+    
+    subgraph Blue ["Blue Environment (Active)"]
+        V1[App Version 1.0]
+    end
+    
+    subgraph Green ["Green Environment (Idle/Staging)"]
+        V2[App Version 2.0]
+    end
+
+    User --> LB
+    LB -.->|Switch Traffic| V2
+    LB -->|Current Traffic| V1
+    
+    style V1 fill:#add8e6
+    style V2 fill:#90ee90
+</div>
+
+### B. Canary Deployment
+- **Concept**: Roll out the update to a small subset of users (the "canaries") first.
+- **Process**: 
+    1. Deploy V2 to 5% of users.
+    2. Monitor for errors.
+    3. If safe, increase to 25%, then 50%, then 100%.
+- **Benefit**: Limits the blast radius of a bad deployment.
+
+<div class="mermaid">
+graph TB
+    Users((All Users))
+    LB[Load Balancer]
+    
+    subgraph Prod ["Production Pool"]
+        S1[Server 1 (V1)]
+        S2[Server 2 (V1)]
+        S3[Server 3 (V1)]
+        S4[Server 4 (V2 - Canary)]
+    end
+
+    Users --> LB
+    LB -->|95% Traffic| S1
+    LB -->|95% Traffic| S2
+    LB -->|95% Traffic| S3
+    LB -->|5% Traffic| S4
+    
+    style S4 fill:#ffff99,stroke:#f96
+</div>
+
+### C. Rolling Deployment
+- **Concept**: Update instances one by one (or in batches).
+- **Process**: 
+    1. Take Server 1 offline.
+    2. Update Server 1 to V2.
+    3. Bring Server 1 back online.
+    4. Repeat for Server 2, 3, etc.
+- **Benefit**: Zero downtime without needing double the infrastructure (like Blue-Green).
+
+<div class="mermaid">
+graph LR
+    T[Time]
+    
+    subgraph S1 ["Step 1"]
+        A1[V1]
+        A2[V1]
+        A3[V1]
+    end
+    
+    subgraph S2 ["Step 2"]
+        B1[V2]
+        B2[V1]
+        B3[V1]
+    end
+    
+    subgraph S3 ["Step 3"]
+        C1[V2]
+        C2[V2]
+        C3[V1]
+    end
+    
+    subgraph S4 ["Step 4"]
+        D1[V2]
+        D2[V2]
+        D3[V2]
+    end
+
+    T --> S1 --> S2 --> S3 --> S4
+    
+    style B1 fill:#90ee90
+    style C1 fill:#90ee90
+    style C2 fill:#90ee90
+    style D1 fill:#90ee90
+    style D2 fill:#90ee90
+    style D3 fill:#90ee90
+</div>
+
+---
+
+## 8. Best Practices & Summary
+
+### Best Practices
+1. **Commit Early and Often**: Smaller changes are easier to debug.
+2. **Fix Broken Builds Immediately**: The pipeline must always be green.
+3. **Keep Builds Fast**: Developers shouldn't wait hours for feedback.
+4. **Test in Production-like Environments**: Staging should mirror production.
+5. **Immutable Infrastructure**: Don't patch servers; replace them.
+
+### Summary
+CI/CD is not just tools; it's a culture of automation. By implementing a robust pipeline with strategies like Blue-Green or Canary deployments, organizations can achieve:
+- **High Velocity**: Deploying multiple times a day.
+- **High Stability**: Automated tests catch bugs before users do.
+- **Happy Teams**: Less time fighting fires, more time building features.
+    </textarea>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ startOnLoad: false, theme: 'default' });
+
+        // Get Markdown content
+        const markdownContent = document.getElementById('markdown-source').value;
+
+        // Render Markdown
+        document.getElementById('content').innerHTML = marked.parse(markdownContent);
+
+        // Render Mermaid diagrams
+        mermaid.run({
+            querySelector: '.mermaid'
+        });
+    </script>
+</body>
+</html>

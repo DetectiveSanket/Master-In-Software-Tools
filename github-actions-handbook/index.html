@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions Masterclass Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --primary: #2ea44e;
+            --primary-hover: #2c974b;
+            --bg-dark: #0d1117;
+            --card-bg: rgba(22, 27, 34, 0.7);
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border: rgba(48, 54, 61, 0.8);
+            --glass-blur: blur(12px);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(46, 164, 78, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(88, 166, 255, 0.05) 0%, transparent 40%);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #8b949e 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(46, 164, 78, 0.1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            background: rgba(46, 164, 78, 0.1);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .mermaid-section {
+            background: var(--card-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .mermaid-section h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        /* Documentation Viewer */
+        #doc-viewer, #example-hub {
+            display: none;
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: var(--card-bg);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            animation: fadeIn 0.5s ease-out;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        #doc-content {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        #doc-content h1 { font-size: 2.5rem; color: #fff; margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+        #doc-content h2 { font-size: 1.8rem; color: #fff; margin-top: 2.5rem; margin-bottom: 1.2rem; }
+        #doc-content h3 { font-size: 1.4rem; color: #fff; margin-top: 2rem; }
+        
+        #doc-content p { margin-bottom: 1.2rem; }
+        #doc-content ul, #doc-content ol { margin-bottom: 1.2rem; margin-left: 1.5rem; }
+        #doc-content li { margin-bottom: 0.5rem; }
+
+        #doc-content blockquote {
+            border-left: 4px solid var(--primary);
+            padding: 1.2rem;
+            background: rgba(46, 164, 78, 0.05);
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+        }
+
+        #doc-content pre {
+            background: #010409;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+        }
+
+        #doc-content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        #doc-content pre code {
+            background: transparent;
+            padding: 0;
+            font-size: 0.95rem;
+        }
+
+        #doc-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        #doc-content th, #doc-content td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+
+        #doc-content th {
+            background: rgba(46, 164, 78, 0.1);
+            color: #fff;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            margin-bottom: 3rem;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 12px rgba(46, 164, 78, 0.2);
+        }
+
+        .back-btn:hover {
+            background: var(--primary-hover);
+            transform: translateX(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .floating-action {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(46, 164, 78, 0.4);
+            transition: 0.3s;
+            z-index: 1000;
+            cursor: pointer;
+            border: none;
+        }
+
+        .floating-action:hover {
+            transform: scale(1.05);
+            background: var(--primary-hover);
+        }
+
+        #example-hub h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="main-container">
+    <header>
+        <h1>GitHub Actions Handbook</h1>
+        <p>Master the art of CI/CD automation with the complete guide.</p>
+    </header>
+
+    <div class="grid">
+        <div onclick="showDoc('intro')" class="card">
+            <span class="badge">Module 01</span>
+            <h2>🚀 Introduction</h2>
+            <p>Learn what GitHub Actions is, why it matters, and the core components that make it tick.</p>
+        </div>
+
+        <div onclick="showDoc('concepts')" class="card">
+            <span class="badge">Module 02</span>
+            <h2>🏗️ Architecture</h2>
+            <p>Deep dive into Workflows, Jobs, Steps, and how they relate to each other.</p>
+        </div>
+
+        <div onclick="showDoc('syntax')" class="card">
+            <span class="badge">Module 03</span>
+            <h2>📝 YAML Syntax</h2>
+            <p>A comprehensive reference for the YAML schema used in GitHub Actions.</p>
+        </div>
+
+        <div onclick="showDoc('advanced')" class="card">
+            <span class="badge">Module 04</span>
+            <h2>⚡ Advanced Features</h2>
+            <p>Master Secrets, Matrix builds, Caching, and Reusable Workflows.</p>
+        </div>
+    </div>
+
+    <div class="mermaid-section">
+        <h2>Visualizing the Ecosystem</h2>
+        <div class="mermaid">
+            graph TD
+                Event["Event: Push / PR"] --> Workflow["Workflow File"]
+                subgraph Runner
+                    Workflow --> Job1["Job: Build & Test"]
+                    Job1 --> Step1["Step: Checkout"]
+                    Job1 --> Step2["Step: Run Action"]
+                    Job1 --> Step3["Step: Shell Script"]
+                end
+                Job1 --> Artifacts["Artifacts / Deploy"]
+                style Event fill:#2ea44e,stroke:#fff,color:#fff
+                style Workflow fill:#58a6ff,stroke:#fff,color:#fff
+        </div>
+    </div>
+</div>
+
+<div id="example-hub">
+    <button class="back-btn" onclick="showGrid()">← Back to Dashboard</button>
+    <h2>Practical Workflow Examples</h2>
+    <div class="grid">
+        <div onclick="showDoc('ex-node')" class="card">
+            <span class="badge">YAML</span>
+            <h2>📦 Node.js CI</h2>
+            <p>Automated building, testing, and matrix support for multiple Node versions.</p>
+        </div>
+        <div onclick="showDoc('ex-docker')" class="card">
+            <span class="badge">YAML</span>
+            <h2>🐳 Docker Publish</h2>
+            <p>Build and push images to GitHub Container Registry automatically.</p>
+        </div>
+        <div onclick="showDoc('ex-release')" class="card">
+            <span class="badge">YAML</span>
+            <h2>🚀 Auto Release</h2>
+            <p>Generate changelogs and create GitHub Releases on tag push.</p>
+        </div>
+    </div>
+</div>
+
+<div id="doc-viewer">
+    <button class="back-btn" onclick="showGrid()">← Back to Dashboard</button>
+    <div id="doc-content"></div>
+</div>
+
+<footer id="main-footer">
+    <p>&copy; 2026 GitHub Actions Masterclass • Built for Sanket Talekar</p>
+</footer>
+
+<button class="floating-action" onclick="showGrid('example-hub')">View Example YAMLs →</button>
+
+<!-- Embedded Content Store -->
+<script type="text/markdown" id="content-intro">
+# 01: Introduction to GitHub Actions
+
+## What is GitHub Actions?
+
+**GitHub Actions** is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
+
+GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
+
+## Why Use GitHub Actions?
+
+1.  **Fully Integrated**: No need for third-party tools like Jenkins or Travis CI. It's built right into GitHub.
+2.  **Free for Public Repos**: Generous free tier for private repos and unlimited for public ones.
+3.  **Cross-Platform**: Run workflows on Windows, Linux, and macOS.
+4.  **Huge Marketplace**: Thousands of pre-built actions created by the community.
+5.  **Matrix Builds**: Test across multiple versions of languages and OSs simultaneously.
+
+## Core Components
+
+-   **Workflow**: An automated process that you add to your repository. Workflows are made up of one or more jobs and can be triggered by an event.
+-   **Event**: A specific activity in a repository that triggers a workflow run. (e.g., push, pull request, issue creation).
+-   **Job**: A set of steps in a workflow that is executed on the same runner.
+-   **Step**: An individual task that can run commands or actions.
+-   **Action**: A standalone application for the GitHub Actions platform that performs a complex but frequently repeated task.
+-   **Runner**: A server that runs your workflows when they are triggered.
+
+## Visualizing the Flow
+
+```mermaid
+graph TD
+    A[GitHub Event] --> B[Workflow]
+    B --> C[Job 1]
+    B --> D[Job 2]
+    C --> E[Step 1]
+    C --> F[Step 2]
+    E --> G[Action or Shell Script]
+```
+
+> [!TIP]
+> Think of GitHub Actions as a "Digital Robot" that lives in your repository and performs tasks for you whenever something happens!
+</script>
+
+<script type="text/markdown" id="content-concepts">
+# 02: Core Concepts & Architecture
+
+To master GitHub Actions, you must understand the hierarchy of its components.
+
+## 1. The Workflow hierarchy
+
+A **Workflow** is the top-level container. It lives in your repository at `.github/workflows/`.
+
+### 🏗️ Workflow Structure
+```mermaid
+graph LR
+    subgraph Workflow
+        subgraph Job
+            Step1[Step 1: Action]
+            Step2[Step 2: Script]
+        end
+    end
+```
+
+## 2. Detailed Component Breakdown
+
+### A. Events (Triggers)
+Workflows start with an `on` keyword.
+- **Push**: `on: [push]`
+- **Pull Request**: `on: [pull_request]`
+- **Schedule (Cron)**: `on: schedule: - cron: '0 0 * * *'`
+- **Manual**: `on: [workflow_dispatch]`
+
+### B. Jobs
+Jobs are a series of steps that run on the same **Runner**. By default, jobs run in **parallel**, but you can make them depend on each other using `needs`.
+
+### C. Steps
+Steps are individual tasks. They can:
+1. Run a shell command (e.g., `npm install`).
+2. Run an **Action** (e.g., `actions/checkout@v4`).
+
+### D. Actions
+Actions are reusable units of code. You can find them in the GitHub Marketplace.
+Example: `uses: actions/setup-node@v4`
+
+### E. Runners
+A runner is a virtual machine or container.
+- **GitHub-hosted runners**: Managed by GitHub (Ubuntu, Windows, macOS).
+- **Self-hosted runners**: Your own servers.
+
+## 3. Dependency Graph
+
+If you want Job B to run only after Job A finishes:
+
+```yaml
+jobs:
+  job_a:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Job A"
+  job_b:
+    needs: job_a
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Job B runs after A"
+```
+
+```mermaid
+graph TD
+    A[Job A] -->|needs| B[Job B]
+    A -->|needs| C[Job C]
+    B --> D[Job D]
+    C --> D
+```
+
+> [!IMPORTANT]
+> All steps in a single job share the same file system. If Step 1 creates a file, Step 2 can read it. However, Jobs do NOT share a file system unless you use **Artifacts**.
+</script>
+
+<script type="text/markdown" id="content-syntax">
+# 03: GitHub Actions YAML Syntax Reference
+
+The foundation of every workflow is a YAML file. Here is the reference for the most common keys.
+
+## 🔑 Core Keywords
+
+| Keyword | Description | Required |
+| :--- | :--- | :--- |
+| `name` | The name of the workflow (visible in GitHub UI). | No |
+| `on` | The event that triggers the workflow. | **Yes** |
+| `jobs` | A group of tasks that run in the workflow. | **Yes** |
+| `runs-on` | The type of machine to run the job on. | **Yes (per job)** |
+| `steps` | A sequence of tasks to execute in a job. | **Yes (per job)** |
+
+## 📦 Event Triggers (`on`)
+
+```yaml
+on:
+  # Single event
+  push:
+
+  # Multiple events
+  pull_request:
+    branches: [ main, develop ]
+  
+  # Scheduled (UTC)
+  schedule:
+    - cron: '30 5 * * 1,3' # Every Mon and Wed at 05:30
+```
+
+## 🛠️ Step Configuration
+
+```yaml
+steps:
+  - name: Check out code
+    uses: actions/checkout@v4
+
+  - name: Set up Node.js
+    uses: actions/setup-node@v4
+    with:
+      node-version: '20'
+
+  - name: Install dependencies
+    run: npm install
+
+  - name: Build
+    run: npm run build
+```
+
+## 🧪 Expressions and Contexts
+
+GitHub Actions uses `${{ <expression> }}` to evaluate variables and logic.
+
+- **Contexts**: `${{ github.repository }}`, `${{ github.sha }}`, `${{ secrets.MY_SECRET }}`
+- **Operators**: `==`, `!=`, `&&`, `||`, `!`
+- **Functions**: `contains()`, `startsWith()`, `hashFiles()`, `success()`, `failure()`
+
+Example:
+```yaml
+if: github.ref == 'refs/heads/main'
+run: echo "I am on the main branch!"
+```
+
+## 🌍 Environment Variables
+
+```yaml
+env:
+  GLOBAL_VAR: "I am available everywhere"
+
+jobs:
+  my_job:
+    env:
+      JOB_VAR: "I am only in this job"
+    steps:
+      - run: echo $GLOBAL_VAR
+      - env:
+          STEP_VAR: "I am only in this step"
+        run: echo $STEP_VAR
+```
+
+> [!CAUTION]
+> Never print sensitive data or secrets to the logs. GitHub will try to mask them, but it's best practice to be careful!
+</script>
+
+<script type="text/markdown" id="content-advanced">
+# 04: Advanced GitHub Actions Features
+
+Once you know the basics, these features will make you a pro.
+
+## 1. Secrets and Variables
+Store sensitive data (like API keys) in **GitHub Secrets** and non-sensitive config in **Variables**.
+
+Access them like this:
+```yaml
+steps:
+  - name: Deploy
+    env:
+      API_KEY: ${{ secrets.DEPLOYMENT_KEY }}
+      APP_NAME: ${{ vars.APP_NAME }}
+    run: ./deploy.sh
+```
+
+## 2. Matrix Builds
+Test multiple versions of a language or multiple OSs at once.
+
+```yaml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [16, 18, 20]
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+```
+*This will trigger 3 x 2 = 6 jobs total!*
+
+## 3. Reusable Workflows
+Don't repeat yourself. Create a workflow once and call it from others.
+
+**Caller Workflow:**
+```yaml
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/reusable.yml
+```
+
+## 4. Caching Dependencies
+Speed up your builds by caching `node_modules` or other dependencies.
+
+```yaml
+- name: Cache dependencies
+  uses: actions/cache@v4
+  with:
+    path: ~/.npm
+    key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+```
+
+## 5. Artifacts
+Pass data between jobs or upload build results.
+
+```yaml
+- name: Upload Build
+  uses: actions/upload-artifact@v4
+  with:
+    name: build-output
+    path: dist/
+```
+
+## 6. Environments and Protection Rules
+- **Environments**: Define `production`, `staging`, etc.
+- **Approvals**: Require manual approval before deploying to certain environments.
+- **Wait Times**: Add delays before execution.
+
+```mermaid
+graph TD
+    A[Build Job] --> B[Approval Required]
+    B --> C[Deploy to Production]
+```
+
+> [!TIP]
+> Use **Matrix Builds** to save time and ensure your code works everywhere!
+</script>
+
+<script type="text/markdown" id="content-ex-node">
+# Node.js Continuous Integration Sample
+
+This workflow builds and tests a Node.js project across multiple versions.
+
+```yaml
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+```
+</script>
+
+<script type="text/markdown" id="content-ex-docker">
+# Docker Build and Publish Sample
+
+This workflow builds a Docker image and pushes it to the GitHub Container Registry.
+
+```yaml
+name: Docker Publish
+
+on:
+  push:
+    branches: [ "main" ]
+    tags: [ 'v*.*.*' ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+```
+</script>
+
+<script type="text/markdown" id="content-ex-release">
+# Automatic Release Sample
+
+This workflow triggers a GitHub Release when a new version tag is pushed.
+
+```yaml
+name: Automatic Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate Changelog
+        run: |
+          echo "## Changelog" > changelog.md
+          git log $(git describe --tags --abbrev=0 HEAD^)..HEAD --oneline >> changelog.md
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: changelog.md
+          files: |
+            dist/*.zip
+            pkg/*.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+</script>
+
+<script>
+    mermaid.initialize({
+        theme: 'dark',
+        startOnLoad: true,
+        securityLevel: 'loose',
+        themeVariables: {
+            fontFamily: 'Outfit',
+            primaryColor: '#2ea44e',
+            edgeLabelBackground: '#0d1117'
+        }
+    });
+
+    function showDoc(id) {
+        document.getElementById('main-container').style.display = 'none';
+        document.getElementById('example-hub').style.display = 'none';
+        
+        const docViewer = document.getElementById('doc-viewer');
+        const docContent = document.getElementById('doc-content');
+        const markdown = document.getElementById('content-' + id).textContent;
+        
+        docContent.innerHTML = marked.parse(markdown);
+        docViewer.style.display = 'block';
+        window.scrollTo(0, 0);
+
+        setTimeout(() => {
+            mermaid.run();
+        }, 100);
+    }
+
+    function showGrid(sectionId = 'main-container') {
+        const sections = ['main-container', 'example-hub', 'doc-viewer'];
+        sections.forEach(id => {
+            document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none';
+        });
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
+</html>

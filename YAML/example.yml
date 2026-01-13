@@ -1,0 +1,18 @@
+
+# Error but not shown here (missing indentation)
+chia_shop:
+name: "Chia World"
+location: "123 Chia St, Chia City"
+categories:
+  - Traditional
+  - Specialty
+  - Organic
+
+# correct YAML format
+chia_shop_:
+  name: "Chia World"
+  location: "123 Chia St, Chia City"
+  categories:
+    - Traditional
+    - Specialty
+    - Organic  

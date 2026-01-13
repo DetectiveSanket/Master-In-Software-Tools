@@ -1,0 +1,213 @@
+
+# yml -> key : value
+
+## Whaat is YAML?
+# YAML (YAML Ain't Markup Language) is a human-readable data serialization format commonly used for configuration files and data exchange between programming languages with different data structures.
+
+
+## Where to use YAML?
+# Configuration files (e.g., application settings, deployment configurations)
+# Data serialization (e.g., data exchange between systems)
+# Infrastructure as Code (e.g., defining cloud resources)
+# CI/CD pipelines (e.g., defining build and deployment workflows)
+# Kubernetes manifests (e.g., defining pods, services, deployments)
+# Docker Compose files (e.g., defining multi-container Docker applications)
+# Ansible playbooks (e.g., defining automation tasks)
+
+
+## ⁡⁢⁣⁣𝗬𝗔𝗠𝗟 𝘀𝘆𝗻𝘁𝗮𝘅 𝗯𝗮𝘀𝗶𝗰𝘀⁡
+geeting: "Hello, World!" # valid
+farwell: goodbye # valid
+number: 34
+
+chia_seed:
+  - apple
+  - banana
+  - cherry
+  - date
+  - elderberry
+  - fig
+  - grape
+
+# This is a comment line in YAML
+
+# yml indentation is important
+  # In yml only spaces are allowed for indentation, not tabs
+  # only 2 spaces are recommended for each indentation level
+
+
+chia_recipe:
+  base: chia_tea
+  milk: oat_milk
+
+# Data types in YAML
+
+# 1. Strings
+string_value: "This is a string" # best practice to use quotes
+string"_value_no_quotes: This is also a string # valid but not best practice
+string_value_single_quotes: 'Single quoted string' # valid best practice
+
+brewing_instruction: | # this is used for multi-line strings
+  1. Boil water
+  2. Add chia seeds
+  3. Steep for 5 minutes
+  4. Add milk and sweetener as desired
+
+brewing_instruction_two: > # this is used for multi-line strings, but folds new lines to spaces
+  1. Boil water     # new line becomes space (space in neccessary after period or next line will be concatenated directly)
+  2. Add chia seeds
+  3. Steep for 5 minutes
+  4. Add milk and sweetener as desired  
+
+
+# 2. Integers/numbers
+integer_value: 42 # integer value
+float_value: 3.14 # float value
+scientific_value: 1.2e10 # scientific notation
+negative_value: -7 # negative integer
+large_number: 1_000_000 # underscores are allowed for readability
+hexadecimal_value: 0x1A # hexadecimal value
+octal_value: 0o52 # octal value
+
+# 3. Booleans
+boolean_true: true
+boolean_yes: yes # valid, interpreted as true
+boolean_false: false
+boolean_no: no # valid, interpreted as false
+boolean_of: off # valid, interpreted as false
+boolean_on: on # valid, interpreted as true
+
+# 4. Null
+null_value: null # represents null value
+empty_value: ~ # another way to represent null
+
+# 5 Timestamps 
+timestamp_value: 2026-01-15T13:45:30Z # ISO 8601 format
+date_value: 2026-01-15 # Date only -> best YYYY-MM-DDThh:mm:ssZ
+local_time: 2026-01-15 13:45:30 # Local time without timezone
+
+# 6. Arrays/Lists/collections
+fruit_list: # most used way to define a list
+  - apple
+  - banana
+  - cherry
+  - date
+  - true
+  - 234
+
+vegetable_list: [carrot, broccoli, spinach, kale] # inline list but old way  
+number_list: [1, 2, 3, 4, 5] # inline list of numbers
+
+# Lists can contain mixed data types, including strings, numbers, booleans, and nulls
+mixed_list:
+  - apple
+  - 42
+  - true
+  - null
+  - 3.14
+
+chia_categories:
+  - name: Traditional
+    varieties:
+      - Black Chia
+      - White Chia
+      - Salba Chia
+  - name: Specialty
+    varieties:
+      - Golden Chia
+      - Rainbow Chia
+  - name: Organic
+    varieties:
+      - Organic Black Chia
+      - Organic White Chia    
+
+
+# 7. Dictionaries/Maps/Hashmaps
+person:
+  name: John Doe
+  age: 30
+  is_student: false
+  address:
+    street: 123 Main St
+    city: Anytown
+    zip: 12345
+  phone_numbers:
+    - type: home
+      number: 555-1234
+    - type: work
+      number: 555-5678
+
+
+# Inline dictionary but old way
+car: {make: Toyota, model: Camry, year: 2020, electric: false}
+
+# 8. Nested Structures
+company:
+  name: Tech Solutions
+  employees:
+    - name: Alice Smith
+      position: Developer
+      skills:
+        - Python
+        - JavaScript
+        - SQL
+    - name: Bob Johnson
+      position: Designer
+      skills:
+        - Photoshop
+        - Illustrator
+        - Figma
+  address:
+    street: 456 Tech Ave
+    city: Innovate City
+    zip: 67890
+
+# 9. Special Data Types
+binary_data: !!binary | # base64 encoded binary data
+  R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==
+
+omap_example: !!omap # ordered map
+  - name: John Doe 
+  - age: 30
+  - city: Anytown
+set_example: !!set # this is used to define a set (not used frequently)
+  ? apple  # defining a set
+  ? banana
+  ? cherry
+  ? date
+
+zip_code: !!str 12345 # forcing string type for zip code  means even if it looks like a number it will be treated as string
+count: !!int "42" # forcing integer type even if it is in quotes
+
+# 10. Anchors and Aliases 
+default_settings: &default_settings # defining an anchor -> before use this anchor show error called unsed anchor
+  theme: light
+  notifications: enabled
+
+user_settings:
+  <<: *default_settings # using the anchor with alias
+  theme: dark # overriding the theme
+admin_settings:
+  <<: *default_settings # use anchor multiple times
+  notifications: disabled # overriding notifications
+
+# 11. Comments
+# This is a comment line in YAML
+# Comments start with a '#' symbol and continue to the end of the line
+
+# 12. Special Characters
+special_characters: "This string contains special characters: !@#$%^&*()_+-=[]{}|;:',.<>/?`~"
+
+# 13. Multidocument YAML
+--- # start of first document . --- used to separate multiple documents in a single YAML file. 
+    # use case of --- :- configuration files that need to define multiple configurations in a single file.
+document: 1
+data: This is the first document
+---
+document: 2
+data: This is the second document
+---
+document: 3
+data: This is the third document
+# Each document starts with '---' and can contain its own set of key-value pairs
+
