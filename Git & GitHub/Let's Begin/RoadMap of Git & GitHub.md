@@ -1,0 +1,162 @@
+# 🗺️ Git & GitHub Master Roadmap
+
+## 🧩 **PART 1: FOUNDATIONS (Very Important)**
+
+### **Chapter 1: What is Git & Why It Exists**
+- **Problem before Git** (real-life example)
+- **What Git actually does**
+- **Git vs GitHub** (clear difference)
+- **Git in simple words** (version history concept)
+
+### **Chapter 2: How Git Works Internally (Core Concept)**
+- **Repository**
+- **Working Directory**
+- **Staging Area**
+- **Commit**
+- **HEAD**
+- 📌 **Diagram explanation** (very important for interviews)
+
+### **Chapter 3: Installing & Setting Up Git**
+- **Installing Git**
+- **Checking Git version**
+- **Git global configuration** (name & email)
+- **Why configuration is important**
+
+---
+
+## 🧩 **PART 2: BASIC GIT (COMMAND LINE – DON’T WORRY)**
+> Even if you use VS Code UI, companies expect command-line understanding.
+
+### **Chapter 4: Creating & Understanding a Repository**
+- `git init`
+- `.git` folder (hidden brain of Git)
+- **First repository walkthrough**
+
+### **Chapter 5: Git File Lifecycle (MOST IMPORTANT)**
+- **Untracked**
+- **Modified**
+- **Staged**
+- **Committed**
+- 📌 **Diagram + real-life analogy** (office file system)
+
+### **Chapter 6: Core Git Commands (Daily Use)**
+- `git status`
+- `git add`
+- `git commit`
+- `git log`
+- `git diff`
+- 🛠️ **Practical mini-project**
+
+---
+
+## 🧩 **PART 3: GITHUB (REMOTE REPOSITORY)**
+
+### **Chapter 7: What is GitHub Actually?**
+- **GitHub vs Git**
+- **Remote repository concept**
+- **Why companies use GitHub**
+
+### **Chapter 8: Connecting Local Git to GitHub**
+- **Creating GitHub repo**
+- `git remote add origin`
+- `git push`
+- `git pull`
+- `git clone`
+- 📌 **Diagram: Local ↔ Remote flow**
+
+### **Chapter 9: .gitignore**
+- **Why .gitignore is critical**
+- **What should be ignored**
+- **Real project examples** (`node_modules`, `.env`)
+
+---
+
+## 🧩 **PART 4: BRANCHING (REAL POWER OF GIT)**
+
+### **Chapter 10: Branches Explained Simply**
+- **What is a branch**
+- **Why branches exist**
+- `main` vs `feature` branch
+- **Branch diagram** (tree structure)
+
+### **Chapter 11: Branch Commands**
+- `git branch`
+- `git checkout`
+- `git switch`
+- `git merge`
+- 🛠️ **Feature development practical**
+
+---
+
+## 🧩 **PART 5: COLLABORATION (YOU MISSED THIS PART EARLIER)**
+
+### **Chapter 12: Working in a Team (REAL COMPANY FLOW)**
+- **Multiple developers working on same repo**
+- **Who pushes where**
+- **Feature branches**
+- **Why NOT push directly to main**
+
+### **Chapter 13: Pull Requests (MOST IMPORTANT)**
+- **What is PR**
+- **Why PR exists**
+- **Code review flow**
+- **Approving & merging PRs**
+- 📌 **Real GitHub workflow**
+
+### **Chapter 14: Merge Conflicts (FEAR KILLER)**
+- **What is a merge conflict**
+- **Why it happens**
+- **How to resolve conflicts**
+- **VS Code conflict resolution**
+- 🛠️ **Conflict practical** (step-by-step)
+
+---
+
+## 🧩 **PART 6: ADVANCED GIT (INTERVIEW LEVEL)**
+
+### **Chapter 15: Undoing Mistakes**
+- `git restore`
+- `git reset`
+- `git revert`
+- **When to use what**
+
+### **Chapter 16: Stashing Work**
+- `git stash`
+- **Why stash is useful**
+- **Real-life scenario**
+
+### **Chapter 17: Git History & Clean Commits**
+- **Commit messages best practices**
+- **Squash commits**
+- `git rebase` (simple explanation)
+
+---
+
+## 🧩 **PART 7: PROFESSIONAL GITHUB USAGE**
+
+### **Chapter 18: GitHub Features**
+- **Issues**
+- **Labels**
+- **Milestones**
+- **Discussions**
+
+### **Chapter 19: GitHub Actions (CI/CD Basics)**
+- **What is CI/CD**
+- **Simple GitHub Actions workflow**
+- **Auto build & test**
+
+### **Chapter 20: Industry Best Practices**
+- **Branch naming**
+- **Commit message rules**
+- **Git flow used in companies**
+- **Interview questions & answers**
+
+---
+
+## 📚 **HOW WE WILL STUDY (IMPORTANT)**
+For each chapter, I will provide:
+- 🧠 **Concept** (very simple language)
+- 🌍 **Real-life analogy**
+- 📊 **ASCII diagram**
+- 🛠️ **Hands-on practical**
+- 📝 **Notes summary** (revision-ready)

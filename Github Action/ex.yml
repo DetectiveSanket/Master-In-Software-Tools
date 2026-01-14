@@ -1,0 +1,61 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Integration Tests # The name of the workflow visible in the GitHub Actions tab
+
+on: # On which Events this workflow will run..
+  push: # When code is pushed to the repository
+    branches: [ "main" ] # Run the workflow only on pushes to the "main" branch
+  pull_request: # When a Pull Request is created (pull requests are created when code is pushed to a branch that is being compared to another branch, e.g., "main")
+    branches: [ "main" ] # Run the workflow only on pull requests targeting the "main" branch
+
+jobs: # The set of jobs to be executed as part of this workflow
+  build: # The unique identifier of the job (must be unique within the workflow and you can give it any name you want)
+
+    runs-on: ubuntu-latest  # THis is machine type that github cloud used to run the job (so keep as it is)
+    # The type of machine to run the job on (e.g., the latest version of Ubuntu)
+
+    strategy: # The strategy for running the job
+      matrix:
+        node-version: [18.x, 20.x, 22.x] # The different versions of Node.js to test against
+
+        
+# important step: you can add more versions of node.js here to test against those versions as well        
+    steps: # The set of steps to be executed as part of the job
+    - uses: actions/checkout@v4 # THis command tell or check out your repository under $GITHUB_WORKSPACE, so your job can access it. Check out the current branch.
+    - name: Use Node.js ${{ matrix.node-version }} # This step sets up Node.js environment (version specified in the matrix , it is optional to name the step)
+      uses: actions/setup-node@v4 # This action sets up a Node.js environment for use in actions by downloading and installing the specified version of Node.js before running the build steps.
+      with: # The input parameters for the action
+        node-version: ${{ matrix.node-version }} # The version of Node.js to set up (from the matrix defined above) like 18.x, 20.x, 22.x
+        cache: 'npm' # This enables caching for npm dependencies to speed up subsequent builds
+        run: npm i # This step runs the command to install the Node.js or project (package.json) dependencies specified in the package.json file
+    - name: "build command"
+      run: npm run build # This step runs the build script defined in the package.json file to compile the source code or perform other build tasks
+        
+  
+###################################
+      
+
+  unit_tests: # The unique identifier of the job (must be unique within the workflow and you can give it any name you want)
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: "Installing Dependencies"
+      run: npm i
+    
+    - name: "run unit tests"
+      run: npm run test
+      
+      
