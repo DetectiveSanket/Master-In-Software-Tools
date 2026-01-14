@@ -1,0 +1,148 @@
+
+📘 CHAPTER 3: INSTALLING & CONFIGURING GIT
+    (Small chapter, but VERY important professionally)
+----------------------------------------------------------------------------------------
+
+Chapter 3: Installing & Setting Up Git
+--------------------------------------
+   - Installing Git
+   - Checking Git version
+   - Git global configuration (name & email)
+   - Why configuration is important
+
+[--------------------------------------------------------------------------------------------]
+
+🔹Professional Definition (Important)
+    - Git installation and configuration is the process of setting up Git on a system and defining user identity so that every commit can be correctly attributed to its author.
+
+In simple words 👇
+    - Git must know who you are, otherwise it cannot properly record history.
+
+[--------------------------------------------------------------------------------------------]
+
+🧠 Core Idea You Must Remember
+
+    👉 In company projects, this is non-negotiable.
+        <> Whenever you make a commit, Git stores:
+            1. Who made the change
+            2. Email of the author
+            3. Time of commit
+
+    Managers, reviewers, and CI systems rely on this data.
+
+[--------------------------------------------------------------------------------------------]
+
+🛠️ Step 1: Check if Git Is Installed
+
+    - Open terminal / command prompt and type:
+        
+        git --version
+
+    Output example:
+        git version 2.43.0
+
+    ✅ If you see a version → Git is installed
+    ❌ If not → install Git
+
+[--------------------------------------------------------------------------------------------]
+
+🛠️ Step 2: Installing Git (Quick Overview)
+
+    Windows:
+        - Download from official Git website
+        - Install with default settings (safe)
+
+    macOS:
+        - brew install git
+
+    Linux:
+        - sudo apt install git
+
+    📌 Since you already use VS Code source control, Git is already installed in your system.
+
+[--------------------------------------------------------------------------------------------]
+
+🧠 Step 3: Git Configuration (MOST IMPORTANT PART)
+
+    🔹Professional Meaning:
+        - Git configuration defines identity and behavior settings used during repository operations.
+
+    1️⃣ Set Your Name
+        git config --global user.name "Your Name"
+
+        Example:
+        git config --global user.name "Sanket Navale"
+
+    2️⃣ Set Your Email
+        git config --global user.email "your@email.com"
+
+        📌 Use same email as GitHub account
+        (Important for commit linking on GitHub)
+
+[--------------------------------------------------------------------------------------------]
+
+🌍 What Does --global Mean?
+
+    ---------------------------------------------
+    | Type    | Meaning                         |
+    | ------- | ------------------------------- |
+    | --global| Applies to all projects         |
+    | --local | Applies to current project only |
+    ---------------------------------------------
+
+    📌 Industry rule:
+        Use --global for personal identity
+
+[--------------------------------------------------------------------------------------------]
+
+🔍 Verify Configuration
+
+    Command:
+        git config --list
+
+    You will see:
+        user.name=Your Name
+        user.email=your@email.com
+
+    🧭 Where Does Git Store This?
+        - Windows: .gitconfig file
+        - macOS/Linux: ~/.gitconfig
+
+    👉 Git automatically reads this file
+
+[--------------------------------------------------------------------------------------------]
+
+⚠️ Common Beginner Mistakes
+
+    ❌ Not setting name/email
+    ❌ Using different email than GitHub
+    ❌ Changing config inside repo without understanding
+    ❌ Copy-pasting random commands
+
+[--------------------------------------------------------------------------------------------]
+
+🧪 Mini Practical (Do This Once)
+
+    Run these now:
+        git config --global user.name "Your Name"
+        git config --global user.email "your@email.com"
+        git config --list
+
+    After this, you’re professionally ready.
+
+[--------------------------------------------------------------------------------------------]
+
+📝 Chapter 3 – Notes (Revision)
+
+    - Git must be installed to work
+    - Configuration defines commit author
+    - user.name and user.email are mandatory
+    - --global applies to all repos
+    - Git reads config automatically
+    
+    🎯 What You Gained:
+        ✔ Commits will show correct author
+        ✔ GitHub will link commits to your profile
+        ✔ You look professional in team projects
+
+{------------------------------------------END---------------------------------------------}.
