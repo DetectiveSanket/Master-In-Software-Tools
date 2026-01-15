@@ -1,0 +1,148 @@
+
+📘 CHAPTER 11: BRANCH COMMANDS
+------------------------------
+
+Chapter 11: Branch Commands
+---------------------------
+   - git branch
+   - git checkout / git switch
+   - git merge
+   - [Feature development practical]
+
+[-----------------------------------------------------------------------------]
+
+ Professional Overview
+
+    Branch commands allow developers to create independent lines of development, 
+    switch between them, and merge completed work back into the main branch.
+
+    👉 In simple words:
+        These commands let you work safely, then combine work.
+
+[-----------------------------------------------------------------------------]
+
+🧠 Commands We Will Learn
+
+    1. `git branch`   (List/Create)
+    2. `git checkout` (Old Switch)
+    3. `git switch`   (New Switch)
+    4. `git merge`    (Combine)
+
+[-----------------------------------------------------------------------------]
+
+1️⃣ git branch (Create & View)
+
+    🔹 Definition: Used to list, create, or delete branches.
+
+    🧪 View branches:
+        git branch
+
+    Output:
+        * main
+
+    📌 The `*` indicates the current branch.
+
+    🧪 Create a new branch:
+        git branch feature-login
+
+    ⚠️ Note: This creates the branch, but you are STILL on `main`.
+
+    ## How to create New Branch and use it ()
+        - git branch feature-login <- Create new branch
+        - git switch feature-login <- Switch to new branch
+        - git switch -c feature-login <- Create and switch to new branch (Recommended)
+
+[-----------------------------------------------------------------------------]
+
+2️⃣ git checkout (The Old Way)
+
+    🔹 Definition: Switches between branches or restores files.
+
+    👉 Command:
+        git checkout feature-login
+
+    ⚠️ Why usage is declining?
+    `checkout` does too many things (restoring files, checking out commits).
+    Git introduced `switch` to be more specific and safer.
+
+[-----------------------------------------------------------------------------]
+
+3️⃣ git switch (The Recommended Way)
+
+    🔹 Definition: Used specifically to change branches.
+
+    👉 Switch to existing branch:
+        git switch feature-login
+
+    👉 Create AND Switch (Shortcut):
+        git switch -c feature-login
+
+    📌 This is the preferred command in modern industry flows.
+
+[-----------------------------------------------------------------------------]
+
+4️⃣ git merge (Combine Work)
+
+    🔹 Definition: Integrates changes from one branch into another.
+
+    👉 Command (Merges 'feature' INTO 'main'):
+        git switch main
+        git merge feature-login
+
+[-----------------------------------------------------------------------------]
+
+📊 Branch Merge Diagram
+
+    Before Merge:
+    main ────●────●
+                   \
+                    ●────●  feature-login
+
+    After Merge:
+    main ────●────●──────●
+                        /
+        feature-login ─┘
+
+[-----------------------------------------------------------------------------]
+
+🛠️ FEATURE DEVELOPMENT PRACTICAL (REAL FLOW)
+
+    Step 1: Create & Switch to Branch
+        git switch -c feature-message
+
+    Step 2: Add Feature (Work)
+        [Modify file...]
+        git add .
+        git commit -m "Add message feature"
+
+    Step 3: Merge to Main
+        git switch main
+        git merge feature-message
+
+    Step 4: Delete Feature Branch (Optional)
+        git branch -d feature-message
+
+[-----------------------------------------------------------------------------]
+
+🧠 Important Interview Insight
+
+    Q: Why not develop directly on `main`?
+    A: `main` represents stable, production code. Features are experimental 
+       and might break the app. Branches provide isolation.
+
+[-----------------------------------------------------------------------------]
+
+📝 Chapter 11 – Notes (Revision Ready)
+
+    - `git branch`           → list/create branches.
+    - `git switch`           → change branches (Modern).
+    - `git switch -c <name>` → create & switch.
+    - `git merge <name>`     → combine branch into current one.
+    - Feature branches are temporary; `main` is forever/stable.
+
+    🎯 After This Chapter, You Can:
+        ✔ Work with branches confidently.
+        ✔ Follow company workflow.
+        ✔ Understand PR & collaboration easily.
+
+{---------------------------------END-----------------------------------}
