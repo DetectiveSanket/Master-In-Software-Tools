@@ -1,0 +1,202 @@
+
+📘 CHAPTER 6: CORE GIT COMMANDS (DAILY USE)
+
+-----------------------------------------------------------------------
+
+Chapter 6: Core Git Commands (Daily Use)
+----------------------------------------
+   - git status
+   - git add
+   - git commit
+   - git log
+   - git diff
+   - [Practical mini-project]
+
+[-----------------------------------------------------------------------------]   
+
+🔹 Professional Overview
+    - Core Git commands are the fundamental commands used to inspect repository status, stage changes, create commits, review history, and compare changes.
+
+    👉 In simple words:
+        - These commands let you see, select, save, and review your code changes.
+
+    🧠 The 5 Core Commands We’ll Master
+        - git status
+        - git add
+        - git commit
+        - git log
+        - git diff
+
+    > We’ll explain each one deeply with:
+        - Definition
+        - Why it exists
+        - Practical usage
+
+[-----------------------------------------------------------------------------]        
+
+1️⃣ git status (MOST USED COMMAND)
+     - git status displays the current state of the working directory and staging area.
+
+    🧠 Simple Explanation
+     > This command answers:
+        - What changed?
+        - What is staged?
+        - What is not tracked?
+
+    👉 Think of it as Git’s dashboard
+
+    🧪 Example
+
+            git status
+
+            Output: 
+                On branch main
+                Untracked files:
+                app.js
+                Modified files:
+                index.js
+
+
+            📌 Meaning:
+                - app.js → Untracked
+                - index.js → Modified
+
+            💡 When to Use
+                - Before git add
+                - Before git commit
+                - When confused 😄
+
+[-----------------------------------------------------------------------------]    
+
+2️⃣ git add (SELECTING CHANGES)
+    - git add moves changes from the working directory to the staging area.
+
+    🧠 Simple Explanation
+        > It tells Git:
+            👉 “Include this change in the next commit”
+
+    🧪 Examples
+
+        - Add one file:
+            git add app.js
+
+        - Add all files:
+            git add .
+
+        📌 . means current folder
+
+    ⚠️ Important Tip
+        - git add does NOT save changes
+        - It only prepares them
+
+[-----------------------------------------------------------------------------]   
+
+3️⃣ git commit (SAVING CHANGES)
+    🔹git commit creates a snapshot of the staged changes and stores it in the repository history.
+
+        🧠 Simple Explanation
+            - This is the SAVE button of Git
+
+        🧪 Example
+            git commit -m "Add login feature"
+
+
+        📌 Commit message should explain:
+            - What
+            - Why (if needed)
+
+        🧠 Commit Message Best Practice
+            <verb> <short description>
+
+
+        Examples:
+            - Fix login bug
+            - Add user authentication
+
+[-----------------------------------------------------------------------------]   
+
+4️⃣ git log (HISTORY VIEWER)
+    🔹 git log shows the commit history of the repository.
+
+    🧠 Simple Explanation
+        <> Shows:
+            - Past commits
+            - Who made them
+            - When
+
+    🧪 Example
+        > git log
+
+        - commit a1b2c3
+        - Author: Sanket
+        - Date: Today
+        - Message: Add login feature
+
+    📌 Press q to exit
+[-----------------------------------------------------------------------------] 
+
+5️⃣ git diff (COMPARE CHANGES)
+    🔹 git diff displays line-by-line differences between file versions.
+
+    🧠 Simple Explanation
+        <> Shows:
+            - What changed
+            - Before commit
+
+    🧪 Example
+    git diff
+
+
+    Shows:
+        - Lines added (+)
+        - Lines removed (-)
+
+[-----------------------------------------------------------------------------] 
+
+📊 Command Flow Diagram
+
+    Edit file
+        │
+        ▼
+    git status
+        │
+        ▼
+    git add
+        │
+        ▼
+    git commit
+        │
+        ▼
+    git log
+
+[-----------------------------------------------------------------------------] 
+
+📊 Command Flow Diagram
+    Edit file
+        │
+        ▼
+    git status
+        │
+        ▼
+    git add
+        │
+        ▼
+    git commit
+        │
+        ▼
+    git log
+
+[-----------------------------------------------------------------------------]    
+📝 Chapter 6 – Notes (Revision)
+    - git status → current state
+    - git add → stage changes
+    - git commit → save snapshot
+    - git log → history
+    - git diff → compare changes
+
+🎯 After This Chapter, You Can
+    ✔ Work with Git confidently
+    ✔ Understand VS Code source control
+    ✔ Explain Git commands in interviews
+
+{---------------------------------------END--------------------------------------}              
