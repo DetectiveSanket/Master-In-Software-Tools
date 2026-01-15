@@ -120,6 +120,106 @@ Chapter 4: Creating & Understanding a Repository
 
 [--------------------------------------------------------------------------------------------]
 
+## IMPORTANT of git status
+
+    U -> Unstracked
+    M -> Modified
+    S / A -> Staged / Added
+    C -> Committed
+    
+
+    🔁 NOW THE MOST CONFUSING PART: git reset
+
+        - You were right — this part is tricky and often badly taught.
+
+    🔍 First: View Commit History
+
+        - git log --oneline
+
+
+    Example output:
+
+        - a1b2c3d Fix login bug
+        - e4f5g6h Add auth
+        - i7j8k9l Initial commit
+
+
+    Each line is a save point.
+
+    🧠 WHAT IS git reset?
+
+        - git reset moves your project back to a previous saved point
+
+    Like:
+        - Ctrl + Z (but powerful)
+        - Time travel for your code
+
+-------------------------------------------------------------------
+
+    🔹 1️⃣ git reset <commit-hash>
+    git reset a1b2c3d
+
+
+    📌 What happens:
+        - Code goes back
+        - Files become Modified
+        - Commit removed
+
+    🧠 Safe reset (code not lost)
+
+-----------------------------------------------------   
+
+    🔹 2️⃣ git reset --soft <commit-hash>
+
+    git reset --soft a1b2c3d
+
+
+    📌 What happens:
+        - Code stays
+        - Changes stay staged
+        - Commit removed
+
+    🧠 Use when:
+        - “I want to re-write commit message or combine commits”
+
+------------------------------------------------------------------------
+
+    🔹 3️⃣ git reset --hard <commit-hash> ⚠️ DANGEROUS
+
+    git reset --hard a1b2c3d
+
+
+    📌 What happens:
+        - Code deleted
+        - Changes lost
+
+    Commit gone forever
+    🧠 Like deleting files without recycle bin.
+    🚨 NEVER use unless you are 100% sure
+
+----------------------------------------------
+
+    🔹 4️⃣ git reset --hard HEAD~1
+    git reset --hard HEAD~1
+
+    📌 Meaning:
+        Remove last commit
+        Go one step back
+
+    🧠 HEAD~1 = one commit before current
+
+[--------------------------------------------------------------------------------------------]
+
+    🧠 SIMPLE RESET COMPARISON (REMEMBER THIS)
+        | Command      | Code      | Stage    | Commit  |
+        | ------------ | --------- | -------- | ------- |
+        | reset        | kept      | modified | removed |
+        | reset --soft | kept      | staged   | removed |
+        | reset --hard | ❌ deleted | ❌        | removed |
+
+
+[--------------------------------------------------------------------------------------------]
+
 📝 Chapter 4 – Notes (Revision Ready)
 
         - Git works only inside a repository
