@@ -122,6 +122,10 @@ Chapter 10: Branches Explained Simply
 
     📌 The `*` symbol indicates your CURRENT branch.
 
+## How to switch from one branch to another branch?
+        - git switch <branch-name>   <- Recommended
+        - git checkout <branch-name> <- Old way
+
     👉 In VS Code, you can see all branches by clicking on the branch name in the bottom-left corner.
 
 [-----------------------------------------------------------------------------]
@@ -135,6 +139,123 @@ Chapter 10: Branches Explained Simply
     ❌ NEVER work directly on `main` in a professional setting.
 
 [-----------------------------------------------------------------------------]
+
+❓ Problem You Observed (Very Common)
+
+    - “I created a new branch and pushed code, but that code is not visible on GitHub.”
+
+    - 👉 Your understanding is partially correct, and the missing piece is branch publishing.
+
+    🧠 Core Truth (Important)
+        - ⚠️ Branches are local by default
+
+    > When you create a branch:
+        - git switch -c feature-login
+
+
+    - 👉 That branch exists only on your laptop.
+
+    - GitHub does NOT know about it yet.
+
+    🔹 Professional Explanation
+
+    - Creating a branch locally does not automatically create the same branch on the remote repository.
+    - You must explicitly push the branch to the remote repository.
+
+    🧩 What EXACTLY Is Missing? 
+        - You are missing one thing:
+
+    - Pushing the branch to GitHub
+
+        🛠️ Correct Way to Push a New Branch
+            Step 1: Create branch locally
+                - git switch -c feature-login
+
+            Step 2: Make changes & commit
+                - git add .
+                - git commit -m "Add login feature"
+
+            Step 3: Push branch to GitHub (IMPORTANT)
+                - git push -u origin feature-login
+
+
+        📌 This command does 2 things:
+            - Uploads branch to GitHub
+            - Sets upstream (link)
+
+🧠 What is -u (Upstream)?
+    - Upstream links a local branch to a remote branch so Git knows where to push and pull by default.
+
+    - Simple Explanation
+
+    - After this:
+        - git push
+
+
+    - Git automatically knows:
+        - push to origin/feature-login
+
+    📊 LOCAL vs REMOTE BRANCH VISIBILITY
+
+    Local Machine                 GitHub
+    ┌──────────────┐              ┌──────────────┐
+    │ feature-login│              │ (not visible)│
+    └──────┬───────┘              └──────────────┘
+        │ git push -u
+        ▼
+    ┌──────────────┐              ┌──────────────┐
+    │ feature-login│ ───────────▶ │ feature-login│
+    └──────────────┘              └──────────────┘
+
+    🔍 How to Check Branches
+        Local branches
+        git branch
+
+        Remote branches
+        git branch -r
+
+        Both
+        git branch -a
+
+    🧠 Why Git Works Like This (Design Reason)
+
+    Git is:
+
+    Distributed
+    Offline-first
+
+    So:
+        - You can create unlimited local branches
+        - Only publish when ready
+        - 📌 This gives full control
+
+    🌍 Real-Life Analogy
+        Think like WhatsApp Drafts:
+            Draft message → local branch
+            Send message → git push
+            Others can see only after sending
+
+    ⚠️ Very Common Beginner Mistakes
+        ❌ Thinking branch auto-appears on GitHub
+        ❌ Forgetting -u on first push
+        ❌ Pushing to main accidentally
+        ❌ Editing GitHub UI without pulling locally
+
+📝 Quick Summary (Revision Notes)
+    - Branches are local by default
+    - GitHub doesn’t know local branches
+    - New branch must be pushed explicitly
+    - git push -u origin branch-name is required once
+    - After that, normal git push works
+
+🎯 After This Explanation, You Should Clearly Know
+    ✔ Why branch wasn’t visible
+    ✔ What command was missing
+    ✔ How GitHub gets new branches
+
+[-----------------------------------------------------------------------------]
+
+
 
 📝 Chapter 10 – Notes (Revision Ready)
 
