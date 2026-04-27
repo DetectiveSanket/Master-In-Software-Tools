@@ -1,0 +1,22 @@
+
+
+## COMMON STEPS
+    -1 Main banda folder and initial files banaayega
+    -2 Ab usse github par daal de
+    -3 Collaborators add kare
+        >> Step 1 , 2 and 3 are for initial setup and done only by main (admin,leader) person
+
+    -4 Saare bande us repo se cloning karein.
+        >> Step 4 is for all team members
+
+    -5 Sare bande Apni Apni branch create karein. [VERY IMPORTANT]
+        >> Step 5 is for all team members 
+
+    -6 Apna code usi branch mein likhein.
+    -7 Complete hone par commit kr de and push kr de
+    -8 Inform kare teammate ko about the commit
+    -9 merger(main person who do first three steps) banda fetch karega and merge karega and re-push
+
+
+
+

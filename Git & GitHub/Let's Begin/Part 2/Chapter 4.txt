@@ -127,6 +127,26 @@ Chapter 4: Creating & Understanding a Repository
     S / A -> Staged / Added
     C -> Committed
     
+    ## 🧠 ONE MASTER TABLE (REVISION GOLD)
+        | Command                         | Purpose              |
+        | ------------------------------- | -------------------- |
+        | git status                      | File state           |
+        | git status -s                   | Short status         |
+        | git log                         | Full history         |
+        | git log --oneline               | Compact history      |
+        | git log --oneline --graph --all | Branch visualization |
+        | git diff                        | See changes          |
+        | git add                         | Stage files          |
+        | git commit                      | Save changes         |
+        | git restore                     | Undo changes         |
+        | git reset                       | Undo commits         |
+        | git branch                      | Branch list          |
+        | git switch                      | Change branch        |
+        | git stash                       | Temp save            |
+        ----------------------------------------------------------
+
+            
+[--------------------------------------------------------------------------------------------]
 
     🔁 NOW THE MOST CONFUSING PART: git reset
 

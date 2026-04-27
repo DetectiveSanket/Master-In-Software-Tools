@@ -44,16 +44,16 @@ chia_recipe:
 
 # 1. Strings
 string_value: "This is a string" # best practice to use quotes
-string"_value_no_quotes: This is also a string # valid but not best practice
 string_value_single_quotes: 'Single quoted string' # valid best practice
+string_value_no_quotes: This is also a string # valid but not best practice
 
-brewing_instruction: | # this is used for multi-line strings
+brewing_instruction: | # this '|' is used for multi-line strings
   1. Boil water
   2. Add chia seeds
   3. Steep for 5 minutes
   4. Add milk and sweetener as desired
 
-brewing_instruction_two: > # this is used for multi-line strings, but folds new lines to spaces
+brewing_instruction_two: > # this '>' is used for multi-line strings, but folds new lines to spaces
   1. Boil water     # new line becomes space (space in neccessary after period or next line will be concatenated directly)
   2. Add chia seeds
   3. Steep for 5 minutes
@@ -106,17 +106,18 @@ mixed_list:
   - null
   - 3.14
 
-chia_categories:
-  - name: Traditional
-    varieties:
+# Chaining in YAML file
+chia_categories:       # parent - A
+  - name: Traditional  # Child - B. (A -> B)
+    varieties: 
       - Black Chia
       - White Chia
       - Salba Chia
-  - name: Specialty
+  - name: Specialty  # Child - C. (A -> C)
     varieties:
       - Golden Chia
       - Rainbow Chia
-  - name: Organic
+  - name: Organic    # Child - D. (A -> D)
     varieties:
       - Organic Black Chia
       - Organic White Chia    

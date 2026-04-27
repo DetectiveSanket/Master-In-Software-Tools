@@ -1,29 +1,33 @@
 
-Chapter 1: What is Git & Why It Exists
---------------------------------------
+⁡⁢⁣⁢𝗣𝗔𝗥𝗧 𝟭: 𝗙𝗢𝗨𝗡𝗗𝗔𝗧𝗜𝗢𝗡𝗦 (𝗩𝗲𝗿𝘆 𝗜𝗺𝗽𝗼𝗿𝘁𝗮𝗻𝘁)⁡
+__________________________________________________________________________________________________
+
+
+⁡⁢⁣⁣𝗖𝗵𝗮𝗽𝘁𝗲𝗿 𝟭: 𝗪𝗵𝗮𝘁 𝗶𝘀 𝗚𝗶𝘁 & 𝗪𝗵𝘆 𝗜𝘁 𝗘𝘅𝗶𝘀𝘁𝘀
+⁡--------------------------------------
    - Problem before Git (real-life example)
    - What Git actually does
    - Git vs GitHub (clear difference)
    - Git in simple words (version history concept)
 __________________________________________________________________________________________________
 
-❓ Problem Before Git (Real-Life Story)
+❓ ⁡⁣⁢⁣𝗣𝗿𝗼𝗯𝗹𝗲𝗺 𝗕𝗲𝗳𝗼𝗿𝗲 𝗚𝗶𝘁 (𝗥𝗲𝗮𝗹-𝗟𝗶𝗳𝗲 𝗦𝘁𝗼𝗿𝘆)⁡
 
     Imagine this situation 👇
     -> You are working on a project:
             project/
              ├─ final_code.js
 
-      <> You make some changes… but you’re not sure if it’s correct.
+      <> ⁡⁣⁣⁢You make some changes… but you’re not sure if it’s correct.⁡
       
-    - So what do you do?     
+    - ⁡⁢⁢⁢So what do you do? ⁡    
         -> final_code_v1.js
         -> final_code_v2.js
         -> final_code_final.js
         -> final_code_final_final.js
         -> final_code_final_latest.js 😵
 
-    # Now imagine:
+    # ⁡⁢⁢⁢Now imagine:⁡
         - You broke something
         - You don’t know which file was correct
         - You want to go back to yesterday’s working code
@@ -31,17 +35,17 @@ ________________________________________________________________________________
 
 [--------------------------------------------------------------------]
 
-🧠 The Core Problem Git Solves
+🧠 ⁡⁢⁣⁣𝗧𝗵𝗲 𝗖𝗼𝗿𝗲 𝗣𝗿𝗼𝗯𝗹𝗲𝗺 𝗚𝗶𝘁 𝗦𝗼𝗹𝘃𝗲𝘀⁡
 
-    Git solves 3 big problems:
+    ⁡⁣⁢⁣Git solves 3 big problems:⁡
         🔙 Go back to old versions of code
         🧪 Try new changes without breaking main code
         👥 Allow many people to work on same project safely   
 
-    🧰 So… What is Git? (Simple Definition)
-        - Git is a version control system.
+    🧰⁡⁣⁢⁣ So… What is Git? (Simple Definition)⁡
+        - ⁡⁣⁣⁢Git is a version control system.⁡
 
-    <> Still sounds complex? Let’s simplify 👇
+    <> ⁡⁣⁢⁣Still sounds complex? Let’s simplify⁡ 👇
         👉 Git is like a time machine for your code
             - It remembers every important change
             - You can go back to any previous state
@@ -49,24 +53,24 @@ ________________________________________________________________________________
 
 [--------------------------------------------------------------------]
 
-🗂️ What Exactly Does Git Track?
+🗂️⁡⁢⁣⁣ 𝗪𝗵𝗮𝘁 𝗘𝘅𝗮𝗰𝘁𝗹𝘆 𝗗𝗼𝗲𝘀 𝗚𝗶𝘁 𝗧𝗿𝗮𝗰𝗸?⁡
 
-    Git tracks:
+    ⁡⁣⁢⁣Git tracks:⁡
         - Files
         - Code changes (line by line)
         - Who made the change
         - When the change was made
         - Why the change was made (commit message)
 
-    # So, Git is like a time machine for your code
+    # ⁡⁢⁢⁢So, Git is like a time machine for your code⁡
 
 [--------------------------------------------------------------------]   
 
-🧱 Important Word: Repository (Repo)
-    ! A repository is a folder that Git is watching.
+🧱 ⁡⁢⁣⁣𝗜𝗺𝗽𝗼𝗿𝘁𝗮𝗻𝘁 𝗪𝗼𝗿𝗱: 𝗥𝗲𝗽𝗼𝘀𝗶𝘁𝗼𝗿𝘆 (𝗥𝗲𝗽𝗼)⁡
+   ≽ ⁡⁣⁣⁢A repository is a folder that Git is watching.⁡
 
     ex:-
-        my-project/
+        my-project/ ← Repo
         ├─ index.html
         ├─ style.css
         ├─ app.js
@@ -77,9 +81,9 @@ ________________________________________________________________________________
 
 [--------------------------------------------------------------------]    
 
-🧠 Git vs GitHub (VERY COMMON CONFUSION)
+🧠 ⁡⁢⁣⁣𝗚𝗶𝘁 𝘃𝘀 𝗚𝗶𝘁𝗛𝘂𝗯 (𝗩𝗘𝗥𝗬 𝗖𝗢𝗠𝗠𝗢𝗡 𝗖𝗢𝗡𝗙𝗨𝗦𝗜𝗢𝗡)⁡
     ---------------------------------------------
-    | Git                | GitHub               |
+    |⁡⁣⁢⁣ Git                | GitHub ⁡              |
     | ------------------ | -------------------- |
     | Tool / Software    | Website / Platform   |
     | Works locally      | Works online         |
@@ -89,7 +93,7 @@ ________________________________________________________________________________
 
 [--------------------------------------------------------------------]
 
-📊 Diagram: Big Picture Flow
+📊 ⁡⁢⁣⁣𝗗𝗶𝗮𝗴𝗿𝗮𝗺: 𝗕𝗶𝗴 𝗣𝗶𝗰𝘁𝘂𝗿𝗲 𝗙𝗹𝗼𝘄⁡
 
         Your Computer
     ┌─────────────────┐
@@ -105,7 +109,7 @@ ________________________________________________________________________________
 
 [--------------------------------------------------------------------]        
 
-📝 Chapter 1 – Notes (Revision Ready)
+📝 ⁡⁢⁣⁣𝗖𝗵𝗮𝗽𝘁𝗲𝗿 𝟭 – 𝗡𝗼𝘁𝗲𝘀 (𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻 𝗥𝗲𝗮𝗱𝘆)⁡
 
     - Git = Version control system
         - Keeps history of code changes
