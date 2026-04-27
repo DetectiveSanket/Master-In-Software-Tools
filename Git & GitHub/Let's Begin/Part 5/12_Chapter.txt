@@ -1,8 +1,9 @@
 
 
-## COMMON STEPS
+⁡⁢⁣⁣## 𝗖𝗢𝗠𝗠𝗢𝗡 𝗦𝗧𝗘𝗣𝗦⁡
     -1 Main banda folder and initial files banaayega
-    -2 Ab usse github par daal de
+    -2 Ab usse github par daal de. (git init, git add ., git commit, git remote add origin, git push)
+
     -3 Collaborators add kare
         >> Step 1 , 2 and 3 are for initial setup and done only by main (admin,leader) person
 
@@ -14,9 +15,11 @@
 
     -6 Apna code usi branch mein likhein.
     -7 Complete hone par commit kr de and push kr de
-    -8 Inform kare teammate ko about the commit
+    -8 Inform kare teammate ko about the commit. And other teammate fetch karege (git pull) latest changes and merge karege apni branch mein. (git merge) -> if needed
     -9 merger(main person who do first three steps) banda fetch karega and merge karega and re-push
 
 
+    ## IF sameOne is not a part of your team (mean not in collaborators team) but then want to contribute to your project then he can fork your repo and then clone it and then create a pull request to you. Then you(admin) can review his code and if you like it then you can merge it to your main branch.
 
+    
 

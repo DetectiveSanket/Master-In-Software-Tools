@@ -1,9 +1,9 @@
 
-📘 CHAPTER 7: WHAT IS GITHUB ACTUALLY?
+📘⁡⁢⁣⁣ 𝗖𝗛𝗔𝗣𝗧𝗘𝗥 𝟳: 𝗪𝗛𝗔𝗧 𝗜𝗦 𝗚𝗜𝗧𝗛𝗨𝗕 𝗔𝗖𝗧𝗨𝗔𝗟𝗟𝗬?⁡
 --------------------------------------
 
-Chapter 7: What is GitHub Actually?
------------------------------------
+⁡⁣⁢⁣𝗖𝗵𝗮𝗽𝘁𝗲𝗿 𝟳: 𝗪𝗵𝗮𝘁 𝗶𝘀 𝗚𝗶𝘁𝗛𝘂𝗯 𝗔𝗰𝘁𝘂𝗮𝗹𝗹𝘆?
+⁡-----------------------------------
    - GitHub vs Git
    - Remote repository concept
    - Why companies use GitHub
@@ -20,12 +20,12 @@ Chapter 7: What is GitHub Actually?
 
 [-----------------------------------------------------------------------------]
 
-🧠 First Clear the Biggest Confusion (Again, Deeply)
-
+🧠 ⁡⁢⁣⁣𝗙𝗶𝗿𝘀𝘁 𝗖𝗹𝗲𝗮𝗿 𝘁𝗵𝗲 𝗕𝗶𝗴𝗴𝗲𝘀𝘁 𝗖𝗼𝗻𝗳𝘂𝘀𝗶𝗼𝗻 (𝗔𝗴𝗮𝗶𝗻, 𝗗𝗲𝗲𝗽𝗹𝘆)
+⁡
     Git vs GitHub (Professional View)
 
     ---------------------------------------------
-    | Git                | GitHub               |
+    | ⁡⁣⁢⁣Git                | GitHub ⁡              |
     | ------------------ | -------------------- |
     | Version Control    | Hosting Platform     |
     | Runs on Computer   | Runs on Cloud        |
@@ -34,11 +34,11 @@ Chapter 7: What is GitHub Actually?
     ---------------------------------------------
 
     📌 Important Insight:
-        GitHub does NOT replace Git — it extends Git.
+        ⁡⁣⁣⁢GitHub does NOT replace Git — it extends Git.⁡
 
 [-----------------------------------------------------------------------------]
 
-🌍 Why GitHub Was Created (Problem It Solves)
+🌍 ⁡⁢⁣⁣𝗪𝗵𝘆 𝗚𝗶𝘁𝗛𝘂𝗯 𝗪𝗮𝘀 𝗖𝗿𝗲𝗮𝘁𝗲𝗱 (𝗣𝗿𝗼𝗯𝗹𝗲𝗺 𝗜𝘁 𝗦𝗼𝗹𝘃𝗲𝘀)⁡
 
     ❌ Before GitHub:
         - Developers emailed zip files 😵
@@ -53,7 +53,7 @@ Chapter 7: What is GitHub Actually?
 
 [-----------------------------------------------------------------------------]
 
-🧠 What is a Remote Repository?
+🧠 ⁡⁢⁣⁣𝗪𝗵𝗮𝘁 𝗶𝘀 𝗮 𝗥𝗲𝗺𝗼𝘁𝗲 𝗥𝗲𝗽𝗼𝘀𝗶𝘁𝗼𝗿𝘆?⁡
 
     🔹 Professional Definition:
         A remote repository is a Git repository hosted on a remote server that 
@@ -69,7 +69,7 @@ Chapter 7: What is GitHub Actually?
 
 [-----------------------------------------------------------------------------]
 
-📊 Local vs Remote Flow (Concept)
+📊 ⁡⁢⁣⁣𝗟𝗼𝗰𝗮𝗹 𝘃𝘀 𝗥𝗲𝗺𝗼𝘁𝗲 𝗙𝗹𝗼𝘄 (𝗖𝗼𝗻𝗰𝗲𝗽𝘁)⁡
 
       Your Laptop (Local Git)             GitHub (Remote Repo)
       ┌──────────────────┐                ┌──────────────────┐
@@ -81,48 +81,48 @@ Chapter 7: What is GitHub Actually?
 
 [-----------------------------------------------------------------------------]
 
-🏢 Why Companies Use GitHub (Very Important)
+🏢 ⁡⁢⁣⁣𝗪𝗵𝘆 𝗖𝗼𝗺𝗽𝗮𝗻𝗶𝗲𝘀 𝗨𝘀𝗲 𝗚𝗶𝘁𝗛𝘂𝗯 (𝗩𝗲𝗿𝘆 𝗜𝗺𝗽𝗼𝗿𝘁𝗮𝗻𝘁)⁡
 
-    1️⃣ Centralized Code
+    1️⃣ ⁡⁣⁢⁣Centralized Code⁡
         - One source of truth.
         - No lost code.
 
-    2️⃣ Team Collaboration
+    2️⃣ ⁡⁣⁢⁣Team Collaboration⁡
         - Multiple developers working in parallel.
     
-    3️⃣ Code Review (Pull Requests)
+    3️⃣ ⁡⁣⁢⁣Code Review (Pull Requests)⁡
         - Catch bugs early.
         - Maintain quality.
 
-    4️⃣ Tracking & Management
+    4️⃣ ⁡⁣⁢⁣Tracking & Management⁡
         - Issues, Bugs, Features.
 
-    5️⃣ Automation
+    5️⃣ ⁡⁣⁢⁣Automation⁡
         - CI/CD (GitHub Actions).
 
 [-----------------------------------------------------------------------------]
 
-🧠 GitHub Is MORE Than Storage
+🧠 ⁡⁢⁣⁣𝗚𝗶𝘁𝗛𝘂𝗯 𝗜𝘀 𝗠𝗢𝗥𝗘 𝗧𝗵𝗮𝗻 𝗦𝘁𝗼𝗿𝗮𝗴𝗲⁡
 
-    GitHub provides:
-    - Pull Requests
-    - Issues
-    - Projects
-    - Actions (CI/CD)
-    - Security scans
+   ⁡⁣⁢⁣ GitHub provides:⁡
+        - Pull Requests
+        - Issues
+        - Projects
+        - Actions (CI/CD)
+        - Security scans
 
-    📌 GitHub = Developer platform, not just Git storage.
+    📌 ⁡⁣⁣⁢GitHub = Developer platform, not just Git storage.⁡
 
 [-----------------------------------------------------------------------------]
 
-📝 Chapter 7 – Notes (Revision Ready)
+📝⁡⁢⁣⁣ 𝗖𝗵𝗮𝗽𝘁𝗲𝗿 𝟳 – 𝗡𝗼𝘁𝗲𝘀 (𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻 𝗥𝗲𝗮𝗱𝘆)⁡
 
     - GitHub is a cloud platform for Git repos.
     - Git works locally; GitHub works remotely.
     - Remote repo enables collaboration.
     - Companies use GitHub for teamwork, reviews, automation.
 
-    🎯 After This Chapter, You Understand:
+    🎯 ⁡⁣⁢⁣After This Chapter, You Understand:⁡
         ✔ Why GitHub exists.
         ✔ Difference between Git & GitHub clearly.
         ✔ Why GitHub is mandatory in companies.

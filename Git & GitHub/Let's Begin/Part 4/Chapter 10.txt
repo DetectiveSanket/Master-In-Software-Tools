@@ -1,9 +1,9 @@
 
-📘 CHAPTER 10: BRANCHES EXPLAINED SIMPLY
+📘 ⁡⁢⁣⁣𝗖𝗛𝗔𝗣𝗧𝗘𝗥 𝟭𝟬: 𝗕𝗥𝗔𝗡𝗖𝗛𝗘𝗦 𝗘𝗫𝗣𝗟𝗔𝗜𝗡𝗘𝗗 𝗦𝗜𝗠𝗣𝗟𝗬⁡
 ----------------------------------------
 
-Chapter 10: Branches Explained Simply
--------------------------------------
+⁡⁣⁢⁣𝗖𝗵𝗮𝗽𝘁𝗲𝗿 𝟭𝟬: 𝗕𝗿𝗮𝗻𝗰𝗵𝗲𝘀 𝗘𝘅𝗽𝗹𝗮𝗶𝗻𝗲𝗱 𝗦𝗶𝗺𝗽𝗹𝘆
+⁡-------------------------------------
    - What is a branch?
    - Why branches exist?
    - main vs feature branch
