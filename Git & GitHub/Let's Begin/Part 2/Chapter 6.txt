@@ -14,13 +14,13 @@
 
 [-----------------------------------------------------------------------------]   
 
-🔹 Professional Overview
+🔹 ⁡⁣⁢⁣𝗣𝗿𝗼𝗳𝗲𝘀𝘀𝗶𝗼𝗻𝗮𝗹 𝗢𝘃𝗲𝗿𝘃𝗶𝗲𝘄⁡
     - Core Git commands are the fundamental commands used to inspect repository status, stage changes, create commits, review history, and compare changes.
 
     👉 In simple words:
         - These commands let you see, select, save, and review your code changes.
 
-    🧠 The 5 Core Commands We’ll Master
+    🧠⁡⁣⁢⁣ The 5 Core Commands We’ll Master⁡
         - git status
         - git add
         - git commit
@@ -71,19 +71,19 @@
 2️⃣ ⁡⁢⁣⁣𝗴𝗶𝘁 𝗮𝗱𝗱 (𝗦𝗘𝗟𝗘𝗖𝗧𝗜𝗡𝗚 𝗖𝗛𝗔𝗡𝗚𝗘𝗦)⁡
     - git add moves changes from the working directory to the staging area.
 
-    🧠 Simple Explanation
+    🧠 S⁡⁣⁢⁣imple Explanation⁡
         > It tells Git:
             👉 “Include this change in the next commit”
 
-    🧪 Examples
+    🧪 ⁡⁣⁢⁣Examples⁡
 
         - Add one file:
-            git add app.js
+            ⁡⁢⁢⁢git add app.js⁡
 
         - Add all files:
-            git add .
+           ⁡⁢⁢⁢ git add .⁡
 
-        📌 . means current folder
+        📌 ⁡⁣⁣⁢. means current folder⁡
 
     ⚠️ Important Tip
         - git add does NOT save changes
@@ -91,40 +91,41 @@
 
 [-----------------------------------------------------------------------------]   
 
-3️⃣ git commit (SAVING CHANGES)
+3️⃣ ⁡⁢⁣⁣𝗴𝗶𝘁 𝗰𝗼𝗺𝗺𝗶𝘁 (𝗦𝗔𝗩𝗜𝗡𝗚 𝗖𝗛𝗔𝗡𝗚𝗘𝗦)⁡
     🔹git commit creates a snapshot of the staged changes and stores it in the repository history.
 
-        🧠 Simple Explanation
+        🧠 ⁡⁣⁢⁣Simple Explanation⁡
             - This is the SAVE button of Git
 
-        🧪 Example
-            git commit -m "Add login feature"
+        🧪 ⁡⁣⁢⁣Example⁡
+            git commit -m "Add login feature"⁡⁣⁢⁣
+        >> -m :- > message    
 
 
-        📌 Commit message should explain:
+        📌 ⁡Commit message should explain:
             - What
             - Why (if needed)
 
-        🧠 Commit Message Best Practice
+        🧠 ⁡⁣⁢⁣Commit Message Best Practice⁡
             <verb> <short description>
 
 
-        Examples:
+        ⁡⁣⁢⁣Examples⁡:
             - Fix login bug
             - Add user authentication
 
 [-----------------------------------------------------------------------------]   
 
-4️⃣ git log (HISTORY VIEWER)
+4️⃣ ⁡⁢⁣⁣𝗴𝗶𝘁 𝗹𝗼𝗴 (𝗛𝗜𝗦𝗧𝗢𝗥𝗬 𝗩𝗜𝗘𝗪𝗘𝗥)⁡
     🔹 git log shows the commit history of the repository.
 
-    🧠 Simple Explanation
+    🧠 ⁡⁣⁢⁣Simple Explanation⁡
         <> Shows:
             - Past commits
             - Who made them
             - When
 
-    🧪 Example
+    🧪 ⁡⁣⁢⁣Example⁡
         > git log
 
         - commit a1b2c3
@@ -132,28 +133,31 @@
         - Date: Today
         - Message: Add login feature
 
-    📌 Press q to exit
+    📌 ⁡⁢⁣⁢𝗣𝗿𝗲𝘀𝘀 𝗾 𝘁𝗼 𝗲𝘅𝗶𝘁⁡
 [-----------------------------------------------------------------------------] 
 
-5️⃣ git diff (COMPARE CHANGES)
+5️⃣ ⁡⁢⁣⁣𝗴𝗶𝘁 𝗱𝗶𝗳𝗳 (𝗖𝗢𝗠𝗣𝗔𝗥𝗘 𝗖𝗛𝗔𝗡𝗚𝗘𝗦)⁡
     🔹 git diff displays line-by-line differences between file versions.
 
-    🧠 Simple Explanation
+    🧠⁡⁣⁢⁣ Simple Explanation⁡
         <> Shows:
             - What changed
             - Before commit
 
-    🧪 Example
-    git diff
+    🧪 ⁡⁣⁢⁣Example⁡
+        - ⁡⁢⁢⁢git diff⁡
 
 
-    Shows:
+    ⁡⁣⁢⁣Shows⁡:
         - Lines added (+)
         - Lines removed (-)
 
+    📌 ⁡⁢⁣⁢Use before git add to review changes
+    📌 ⁡⁢⁣⁢𝗣𝗿𝗲𝘀𝘀 𝗾 𝘁𝗼 𝗲𝘅𝗶𝘁⁡
+
 [-----------------------------------------------------------------------------] 
 
-📊 Command Flow Diagram
+📊 ⁡⁢⁣⁣Command Flow Diagram⁡
 
     Edit file
         │
@@ -171,7 +175,7 @@
 
 [-----------------------------------------------------------------------------] 
 
-📊 Command Flow Diagram
+📊 ⁡⁢⁣⁣Command Flow Diagram⁡
     Edit file
         │
         ▼
@@ -187,16 +191,17 @@
     git log
 
 [-----------------------------------------------------------------------------]    
-📝 Chapter 6 – Notes (Revision)
+
+📝 ⁡⁢⁣⁣𝗖𝗵𝗮𝗽𝘁𝗲𝗿 𝟲 – 𝗡𝗼𝘁𝗲𝘀 (𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻)⁡
     - git status → current state
     - git add → stage changes
     - git commit → save snapshot
     - git log → history
     - git diff → compare changes
 
-🎯 After This Chapter, You Can
+🎯 ⁡⁣⁢⁣After This Chapter, You Can⁡
     ✔ Work with Git confidently
     ✔ Understand VS Code source control
     ✔ Explain Git commands in interviews
 
-{---------------------------------------END--------------------------------------}              
+{---------------------------------------⁡⁢⁣⁢𝗘𝗡𝗗⁡--------------------------------------}              
