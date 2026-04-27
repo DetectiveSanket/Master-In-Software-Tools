@@ -1,10 +1,10 @@
 
-📘 CHAPTER 6: CORE GIT COMMANDS (DAILY USE)
+📘 ⁡⁢⁣⁣𝗖𝗛𝗔𝗣𝗧𝗘𝗥 𝟲: 𝗖𝗢𝗥𝗘 𝗚𝗜𝗧 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦 (𝗗𝗔𝗜𝗟𝗬 𝗨𝗦𝗘)⁡
 
 -----------------------------------------------------------------------
 
-Chapter 6: Core Git Commands (Daily Use)
-----------------------------------------
+⁡⁣⁢⁣𝗖𝗵𝗮𝗽𝘁𝗲𝗿 𝟲: 𝗖𝗼𝗿𝗲 𝗚𝗶𝘁 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 (𝗗𝗮𝗶𝗹𝘆 𝗨𝘀𝗲)
+⁡----------------------------------------
    - git status
    - git add
    - git commit
@@ -34,14 +34,14 @@ Chapter 6: Core Git Commands (Daily Use)
 
 [-----------------------------------------------------------------------------]        
 
-1️⃣ git status (MOST USED COMMAND)
-     - git status displays the current state of the working directory and staging area.
+⁡⁢⁣⁣𝟭️⃣ 𝗴𝗶𝘁 𝘀𝘁𝗮𝘁𝘂𝘀 (𝗠𝗢𝗦𝗧 𝗨𝗦𝗘𝗗 𝗖𝗢𝗠𝗠𝗔𝗡𝗗)
+⁡     - git status displays the current state of the working directory and staging area.
 
     🧠 Simple Explanation
-     > This command answers:
-        - What changed?
-        - What is staged?
-        - What is not tracked?
+        > This command answers:
+            - What changed?
+            - What is staged?
+            - What is not tracked?
 
     👉 Think of it as Git’s dashboard
 
@@ -63,12 +63,12 @@ Chapter 6: Core Git Commands (Daily Use)
 
             💡 When to Use
                 - Before git add
-                - Before git commit
+                - Before git commit -> means at staging time
                 - When confused 😄
 
 [-----------------------------------------------------------------------------]    
 
-2️⃣ git add (SELECTING CHANGES)
+2️⃣ ⁡⁢⁣⁣𝗴𝗶𝘁 𝗮𝗱𝗱 (𝗦𝗘𝗟𝗘𝗖𝗧𝗜𝗡𝗚 𝗖𝗛𝗔𝗡𝗚𝗘𝗦)⁡
     - git add moves changes from the working directory to the staging area.
 
     🧠 Simple Explanation

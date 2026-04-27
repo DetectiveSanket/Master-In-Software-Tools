@@ -1,10 +1,10 @@
 
 
-📘 CHAPTER 5: GIT FILE LIFECYCLE
+📘 ⁡⁢⁣⁣𝗖𝗛𝗔𝗣𝗧𝗘𝗥 𝟱: 𝗚𝗜𝗧 𝗙𝗜𝗟𝗘 𝗟𝗜𝗙𝗘𝗖𝗬𝗖𝗟𝗘⁡
     (Untracked → Modified → Staged → Committed)
 -----------------------------------------------------------------------------
 
-Chapter 5: Git File Lifecycle (MOST IMPORTANT)
+⁡⁣⁢⁣𝗖𝗵𝗮𝗽𝘁𝗲𝗿 𝟱: 𝗚𝗶𝘁 𝗙𝗶𝗹𝗲 𝗟𝗶𝗳𝗲𝗰𝘆𝗰𝗹𝗲 (𝗠𝗢𝗦𝗧 𝗜𝗠𝗣𝗢𝗥𝗧𝗔𝗡𝗧)⁡
 ----------------------------------------------
    - Untracked
    - Modified
@@ -14,7 +14,7 @@ Chapter 5: Git File Lifecycle (MOST IMPORTANT)
 
 [--------------------------------------------------------------------------------------------]   
 
-Definition:
+⁡⁣⁢⁣Definition⁡:
     - The Git file lifecycle describes the different states a file goes through from being created or modified to being permanently stored in the Git repository as a commit.
 
 👉 In simple words:
@@ -22,12 +22,12 @@ Definition:
 
 [--------------------------------------------------------------------------------------------]    
 
-🧠 Core Truth (Very Important)
+🧠 ⁡⁢⁣⁣𝗖𝗼𝗿𝗲 𝗧𝗿𝘂𝘁𝗵 (𝗩𝗲𝗿𝘆 𝗜𝗺𝗽𝗼𝗿𝘁𝗮𝗻𝘁)⁡
 
     👉 Git does NOT track files automatically
     - Every file must earn its place in history 😄
 
-    🧩 The 4 States of a File in Git
+    🧩 ⁡⁣⁢⁣The 4 States of a File in Git⁡
         - Untracked
         - Modified
         - Staged
@@ -35,32 +35,32 @@ Definition:
 
 Let’s understand each one deeply.
 
-    1️⃣ Untracked
+    1️⃣ ⁡⁣⁢⁣Untracked⁡
         - An untracked file is a file that exists in the working directory but is not being tracked by Git.
 
-        >< Simple Explanation:
+        >< ⁡⁢⁢⁢Simple Explanation:⁡
             - Git sees the file
             - Git is ignoring it
             - No history, no backup
 
-        📁 Example:
+        📁 ⁡⁢⁢⁢Example⁡:
             - index.js   ← new file
             - git status
             - Untracked files:
                index.js
 
-        📌 New files are always untracked first        
+        📌 ⁡⁣⁣⁢New files are always untracked first ⁡       
 
 
-    2️⃣ Modified    
+    2️⃣ ⁡⁣⁢⁣Modified⁡    
         - A modified file is a tracked file that has been changed in the working directory but not yet staged.
 
-        >< Simple Explanation:
+        >< ⁡⁢⁢⁢Simple Explanation:⁡
             - File is already known to Git
             - You edited it
             - Git noticed the change
 
-        ✍️ Example:
+        ✍️ ⁡⁢⁢⁢Example⁡:
 
             - console.log("Hello Git v2");
 
@@ -68,40 +68,40 @@ Let’s understand each one deeply.
 
             - modified: index.js    
 
-        📌 Modified files are NOT committed yet
+        📌 ⁡⁣⁣⁢Modified files are NOT committed yet⁡
 
 
-    3️⃣ Staged (Very Important)    
-
+    3️⃣ S⁡⁣⁢⁣taged (Very Important)   ⁡ 
         - A staged file is a file whose changes have been added to the staging area and are ready to be committed.
 
-        >< Simple Explanation:
+        >< ⁡⁢⁢⁢Simple Explanation:⁡
             - You selected the file
             - You told Git:
              👉 “Save THIS version”
 
-        Command:
-            - git add index.js
+        ⁡⁢⁢⁢Command⁡:
+            - ⁡⁢⁣⁢git add index.js⁡
 
-        > Now file is in staging area
+        > ⁡⁣⁣⁢Now file is in staging area⁡
 
-    4️⃣ Committed
-
+    4️⃣ ⁡⁣⁢⁣Committed⁡
         - A commit is a snapshot of the project that is permanently stored in the Git repository.
 
-        >< Simple Explanation:
+        >< ⁡⁢⁢⁢Simple Explanation:⁡
             - Changes are saved forever
             - You can go back anytime
 
-        > Command:
+        > ⁡⁢⁢⁢Command⁡:
             - git commit -m "Add hello message"
 
-        🎉 File is now committed
+        🎉 ⁡⁣⁣⁢File is now committed⁡
 
 [--------------------------------------------------------------------------------------------]     
 
-📊 FULL FILE LIFECYCLE DIAGRAM
+📊 ⁡⁢⁣⁣𝗙𝗨𝗟𝗟 𝗙𝗜𝗟𝗘 𝗟𝗜𝗙𝗘𝗖𝗬𝗖𝗟𝗘 𝗗𝗜𝗔𝗚𝗥𝗔𝗠⁡
 
+                │ First time you create file
+                ▼
         ┌───────────────┐
         │  Untracked    │
         │  (New file)   │
@@ -114,9 +114,9 @@ Let’s understand each one deeply.
         └───────┬───────┘
                 │ git commit
                 ▼
-        ┌───────────────┐
-        │  Committed    │
-        │ (Saved)       │
+        ┌───────────────┐                  ___________________________________________  
+        │  Committed    │ ---- git push -> | stored in repo (github) as history.
+        │ (Saved)       │                  ------------------------------------------- 
         └───────────────┘
                 ▲
                 │ edit file
@@ -127,7 +127,7 @@ Let’s understand each one deeply.
 
 [--------------------------------------------------------------------------------------------]
 
-📝 Chapter 5 – Notes (Revision Ready)
+📝 ⁡⁢⁣⁣𝗖𝗵𝗮𝗽𝘁𝗲𝗿 𝟱 – 𝗡𝗼𝘁𝗲𝘀 (𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻 𝗥𝗲𝗮𝗱𝘆)⁡
 
         - Git files move through states
         - Untracked → not tracked
@@ -137,4 +137,4 @@ Let’s understand each one deeply.
         - git add moves file to staging
         - git commit saves snapshot
         
-{-------------------------------------------END-------------------------------------------------}        
+{-------------------------------------------⁡⁢⁣⁢𝗘𝗡𝗗⁡-------------------------------------------------}        
