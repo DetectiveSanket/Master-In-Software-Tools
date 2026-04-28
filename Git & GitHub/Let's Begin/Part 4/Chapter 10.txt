@@ -104,7 +104,7 @@
 
 [-----------------------------------------------------------------------------]
 
-## ⁡⁢⁣⁣𝗛𝗼𝘄 𝘁𝗼 𝘀𝗲𝗲 𝘁𝗵𝗲 𝗯𝗿𝗮𝗻𝗰𝗵 𝗶𝗻 𝗩𝗦 𝗖𝗼𝗱𝗲⁡
+## ⁡⁢⁣⁣⁡⁢⁣⁣𝗛𝗼𝘄 𝘁𝗼 𝘀𝗲𝗲 𝘁𝗵𝗲 𝗯𝗿𝗮𝗻𝗰𝗵 𝗶𝗻 𝗩𝗦 𝗖𝗼𝗱𝗲⁡
 
     👉 In VS Code, you can see the current branch in the bottom-left corner.
     👉 You can also see all branches by clicking on the branch name.
