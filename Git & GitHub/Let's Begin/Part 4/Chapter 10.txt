@@ -11,7 +11,7 @@
 
 [-----------------------------------------------------------------------------]
 
- Professional Definition
+⁡⁣⁢⁣ 𝗣𝗿𝗼𝗳𝗲𝘀𝘀𝗶𝗼𝗻𝗮𝗹 𝗗𝗲𝗳𝗶𝗻𝗶𝘁𝗶𝗼𝗻⁡
 
     A branch in Git is a movable pointer to a specific commit that represents 
     an independent line of development.
@@ -21,26 +21,26 @@
 
 [-----------------------------------------------------------------------------]
 
-🧠 Why Branches Exist (Core Reason)
+🧠 ⁡⁢⁣⁣Why Branches Exist (Core Reason)⁡
 
-    ❌ Without branches:
+    ❌ W⁡⁣⁢⁣ithout branches:⁡
         - Only one version of code.
         - Everyone edits the same files.
         - High chance of breaking the app 😵.
 
-    ✅ With branches:
+    ✅ ⁡⁣⁢⁣With branches:⁡
         - Safe experimentation.
         - Parallel development.
         - Clean `main` code.
 
-    📌 Companies NEVER develop directly on main.
+    📌 ⁡⁣⁣⁢Companies NEVER develop directly on main.⁡
 
 [-----------------------------------------------------------------------------]
 
-🌍 Real-Life Analogy (Very Clear)
+🌍 ⁡⁢⁣⁣𝗥𝗲𝗮𝗹-𝗟𝗶𝗳𝗲 𝗔𝗻𝗮𝗹𝗼𝗴𝘆 (𝗩𝗲𝗿𝘆 𝗖𝗹𝗲𝗮𝗿)⁡
 
-    Imagine a highway:
-
+  ⁡⁣⁢⁣  Imagine a highway:
+⁡
     - `main` branch    = Production Highway (Public, heavy traffic).
     - Feature branch   = Service Road (Construction ongoing).
 
@@ -49,22 +49,22 @@
 
 [-----------------------------------------------------------------------------]
 
-🧩 Core Concepts
+🧩 ⁡⁢⁣⁣𝗖𝗼𝗿𝗲 𝗖𝗼𝗻𝗰𝗲𝗽𝘁𝘀⁡
 
-    1️⃣ What is `main` (or `master`) Branch?
+    1️⃣ ⁡⁣⁢⁣What is `main` (or `master`) Branch?⁡
         - The default branch.
         - Represents stable, working code.
         - This is Production-ready code.
 
-    2️⃣ What is a Feature Branch?
+    2️⃣ ⁡⁣⁢⁣What is a Feature Branch?⁡
         - A temporary branch created to develop a specific feature or fix.
         - Examples: `feature-login`, `bugfix-navbar`, `payment-api`.
         
-        📌 Rule: One feature = One branch.
+        📌 ⁡⁣⁣⁢Rule: One feature = One branch.⁡
 
 [-----------------------------------------------------------------------------]
 
-📊 Branch Tree Diagram
+📊 ⁡⁢⁣⁣𝗕𝗿𝗮𝗻𝗰𝗵 𝗧𝗿𝗲𝗲 𝗗𝗶𝗮𝗴𝗿𝗮𝗺⁡
 
              main (Stable)
                │
@@ -77,66 +77,81 @@
                └── bugfix-ui
                       └── commits (Fixing bugs...)
 
-    👉 Each branch has its own commits and does NOT affect others.
+    👉 ⁡⁣⁣⁢Each branch has its own commits and does NOT affect others.⁡
 
 [-----------------------------------------------------------------------------]
 
-🧠 Important Concept: Branch = Pointer
+🧠⁡⁢⁣⁣ 𝗜𝗺𝗽𝗼𝗿𝘁𝗮𝗻𝘁 𝗖𝗼𝗻𝗰𝗲𝗽𝘁: 𝗕𝗿𝗮𝗻𝗰𝗵 = 𝗣𝗼𝗶𝗻𝘁𝗲𝗿⁡
 
-    Internally in Git:
-    - A Branch is just a pointer to a commit.
-    - It is very lightweight.
-    - Switching branches literally just moves a pointer.
+    ⁡⁣⁢⁣Internally in Git:⁡
+        - A Branch is just a pointer to a commit.
+        - It is very lightweight.
+        - Switching branches literally just moves a pointer.
     
-    📌 That’s why Git branching is extremely fast!
+    📌 ⁡⁣⁣⁢That’s why Git branching is extremely fast!⁡
 
 [-----------------------------------------------------------------------------]
 
-🧪 Small Practical (Check Branch)
+🧪 ⁡⁢⁣⁣𝗦𝗺𝗮𝗹𝗹 𝗣𝗿𝗮𝗰𝘁𝗶𝗰𝗮𝗹 (𝗖𝗵𝗲𝗰𝗸 𝗕𝗿𝗮𝗻𝗰𝗵)⁡
 
-    👉 Command:
-        git branch
+    👉 ⁡⁣⁢⁣Command⁡:
+        ⁡⁢⁢⁢git branch⁡
 
-    Output:
-        * main
+    ⁡⁣⁢⁣Output⁡:
+        ⁡⁢⁢⁢* main⁡
 
-    📌 The `*` symbol indicates your CURRENT branch.
+    📌 ⁡⁣⁣⁢The `*` symbol indicates your CURRENT branch.⁡
 
 [-----------------------------------------------------------------------------]
 
-## How to see the branch in VS Code
+## ⁡⁢⁣⁣𝗛𝗼𝘄 𝘁𝗼 𝘀𝗲𝗲 𝘁𝗵𝗲 𝗯𝗿𝗮𝗻𝗰𝗵 𝗶𝗻 𝗩𝗦 𝗖𝗼𝗱𝗲⁡
 
     👉 In VS Code, you can see the current branch in the bottom-left corner.
     👉 You can also see all branches by clicking on the branch name.
 
-## How to see how many branches does repo has?
+## ⁡⁢⁣⁣𝗛𝗼𝘄 𝘁𝗼 𝘀𝗲𝗲 𝗵𝗼𝘄 𝗺𝗮𝗻𝘆 𝗯𝗿𝗮𝗻𝗰𝗵𝗲𝘀 𝗱𝗼𝗲𝘀 𝗿𝗲𝗽𝗼 𝗵𝗮𝘀?⁡
 
-    👉 Command:
-        git branch
-
-    Output:
+    👉 ⁡⁣⁢⁣Command⁡:
+⁡⁢⁢⁢        git branch
+⁡
+    ⁡⁣⁢⁣Output⁡:
         * main
         feature-login
         feature-payment
         bugfix-ui
 
-    📌 The `*` symbol indicates your CURRENT branch.
+    📌 T⁡⁣⁣⁢he `*` symbol indicates your CURRENT branch.⁡
 
-## How to switch from one branch to another branch?
-        - git switch <branch-name>   <- Recommended
-        - git checkout <branch-name> <- Old way
+## ⁡⁢⁣⁣𝗛𝗼𝘄 𝗱𝗼 𝗜 𝗰𝗿𝗲𝗮𝘁𝗲 𝗻𝗲𝘄 𝗕𝗿𝗮𝗻𝗰𝗵 ?⁡
+
+    - ⁡⁢⁢⁢git branch feature-login⁡ <- Create new branch
+    - ⁡⁢⁢⁢git switch feature-login⁡ <- Switch to new branch
+    - ⁡⁢⁢⁢git switch -c feature-login⁡ <- Create and switch to new branch (Recommended)
+
+
+## ⁡⁢⁣⁣𝗛𝗼𝘄 𝘁𝗼 𝘀𝘄𝗶𝘁𝗰𝗵 𝗳𝗿𝗼𝗺 𝗼𝗻𝗲 𝗯𝗿𝗮𝗻𝗰𝗵 𝘁𝗼 𝗮𝗻𝗼𝘁𝗵𝗲𝗿 𝗯𝗿𝗮𝗻𝗰𝗵?⁡
+    - ⁡⁢⁢⁢git switch⁡ <branch-name>   <- Recommended
+    - ⁡⁢⁢⁢git checkout⁡ <branch-name> <- Old way
 
     👉 In VS Code, you can see all branches by clicking on the branch name in the bottom-left corner.
 
 [-----------------------------------------------------------------------------]
 
-🧠 When Do You Create a Branch?
+🧠⁡⁢⁣⁣ 𝗪𝗵𝗲𝗻 𝗗𝗼 𝗬𝗼𝘂 𝗖𝗿𝗲𝗮𝘁𝗲 𝗮 𝗕𝗿𝗮𝗻𝗰𝗵?⁡
 
     ✔ Before starting a new feature.
     ✔ Before fixing a bug.
     ✔ Before making any risky change.
 
     ❌ NEVER work directly on `main` in a professional setting.
+
+
+  🐺 ⁡⁢⁣⁣𝗛𝗼𝘄 𝗗𝗼 𝗬𝗼𝘂 𝗖𝗿𝗲𝗮𝘁𝗲 𝗮 𝗕𝗿𝗮𝗻𝗰𝗵?
+  ⁡
+    👉 ⁡⁣⁢⁣Command⁡:
+        ⁡⁢⁢⁢git switch -c feature-login⁡
+
+    📌 ⁡⁢⁢⁢This creates a new branch and switches to it immediately.⁡
 
 [-----------------------------------------------------------------------------]
 
@@ -257,7 +272,7 @@
 
 
 
-📝 Chapter 10 – Notes (Revision Ready)
+📝 ⁡⁢⁣⁣𝗖𝗵𝗮𝗽𝘁𝗲𝗿 𝟭𝟬 – 𝗡𝗼𝘁𝗲𝘀 (𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻 𝗥𝗲𝗮𝗱𝘆)⁡
 
     - Branch = independent line of work.
     - `main` = stable, production-ready code.
@@ -265,7 +280,7 @@
     - Branching allows parallel work without conflicts.
     - Companies use branching heavily.
 
-    🎯 After This Chapter, You Understand:
+    🎯 ⁡⁣⁢⁣After This Chapter, You Understand:⁡
         ✔ Why branches are mandatory.
         ✔ How teams work in parallel.
         ✔ Difference between `main` & feature branches.

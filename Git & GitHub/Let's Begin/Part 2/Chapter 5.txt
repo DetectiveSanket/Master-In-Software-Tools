@@ -29,7 +29,7 @@
 
     🧩 ⁡⁣⁢⁣The 4 States of a File in Git⁡
         - Untracked
-        - Modified
+        - Modified 
         - Staged
         - Committed
 
@@ -37,6 +37,7 @@ Let’s understand each one deeply.
 
     1️⃣ ⁡⁣⁢⁣Untracked⁡
         - An untracked file is a file that exists in the working directory but is not being tracked by Git.
+        - The file is new and has not been added to the staging area or committed to the repository.
 
         >< ⁡⁢⁢⁢Simple Explanation:⁡
             - Git sees the file
@@ -54,6 +55,7 @@ Let’s understand each one deeply.
 
     2️⃣ ⁡⁣⁢⁣Modified⁡    
         - A modified file is a tracked file that has been changed in the working directory but not yet staged.
+        - The file is known to Git, and you done same changes in it . But that changes has not yet add , commit and pushed.
 
         >< ⁡⁢⁢⁢Simple Explanation:⁡
             - File is already known to Git
@@ -73,6 +75,7 @@ Let’s understand each one deeply.
 
     3️⃣ S⁡⁣⁢⁣taged (Very Important)   ⁡ 
         - A staged file is a file whose changes have been added to the staging area and are ready to be committed.
+        - The file is add (git add .) but has not yet commited
 
         >< ⁡⁢⁢⁢Simple Explanation:⁡
             - You selected the file
@@ -86,6 +89,7 @@ Let’s understand each one deeply.
 
     4️⃣ ⁡⁣⁢⁣Committed⁡
         - A commit is a snapshot of the project that is permanently stored in the Git repository.
+        - file -> git add . -> git commit -m "message" -> but not yet pushed to github
 
         >< ⁡⁢⁢⁢Simple Explanation:⁡
             - Changes are saved forever
