@@ -149,68 +149,67 @@
   🐺 ⁡⁢⁣⁣𝗛𝗼𝘄 𝗗𝗼 𝗬𝗼𝘂 𝗖𝗿𝗲𝗮𝘁𝗲 𝗮 𝗕𝗿𝗮𝗻𝗰𝗵?
   ⁡
     👉 ⁡⁣⁢⁣Command⁡:
-        ⁡⁢⁢⁢git switch -c feature-login⁡
+    ⁡⁢⁢    - ⁡⁢⁢⁢git branch feature-⁡⁢⁢⁢login⁡ <- Create new branch
+        - ⁡⁢⁢⁢git switch feature-login⁡ <- Switch to new branch
+        - ⁡⁢⁢⁢git switch -c feature-login⁡ <- Create and switch to new branch (Recommended) 
 
     📌 ⁡⁢⁢⁢This creates a new branch and switches to it immediately.⁡
 
 [-----------------------------------------------------------------------------]
 
-❓ Problem You Observed (Very Common)
+❓⁡⁢⁣⁣ 𝗣𝗿𝗼𝗯𝗹𝗲𝗺 𝗬𝗼𝘂 𝗢𝗯𝘀𝗲𝗿𝘃𝗲𝗱 (𝗩𝗲𝗿𝘆 𝗖𝗼𝗺𝗺𝗼𝗻)⁡
 
-    - “I created a new branch and pushed code, but that code is not visible on GitHub.”
+    - “⁡⁣⁢⁣𝗜 𝗰𝗿𝗲𝗮𝘁𝗲𝗱 𝗮 𝗻𝗲𝘄 𝗯𝗿𝗮𝗻𝗰𝗵 𝗮𝗻𝗱 𝗽𝘂𝘀𝗵𝗲𝗱 𝗰𝗼𝗱𝗲, 𝗯𝘂𝘁 𝘁𝗵𝗮𝘁 𝗰𝗼𝗱𝗲 𝗶𝘀 𝗻𝗼𝘁 𝘃𝗶𝘀𝗶𝗯𝗹𝗲 𝗼𝗻 𝗚𝗶𝘁𝗛𝘂𝗯.⁡⁡”
 
     - 👉 Your understanding is partially correct, and the missing piece is branch publishing.
 
-    🧠 Core Truth (Important)
+    🧠 ⁡⁣⁢⁣Core Truth (Important)⁡
         - ⚠️ Branches are local by default
 
-    > When you create a branch:
+    > ⁡⁣⁢⁣When you create a branch:⁡
         - git switch -c feature-login
 
 
-    - 👉 That branch exists only on your laptop.
+    - 👉 ⁡⁣⁢⁣That branch exists only on your laptop.⁡
 
-    - GitHub does NOT know about it yet.
+    - ⁡⁣⁣⁢GitHub does NOT know about it yet.⁡
 
-    🔹 Professional Explanation
+    🔹⁡⁢⁢⁣ 𝗣𝗿𝗼𝗳𝗲𝘀𝘀𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗽𝗹𝗮𝗻𝗮𝘁𝗶𝗼𝗻⁡
+        - Creating a branch locally does not automatically create the same branch on the remote repository.
+        - You must explicitly push the branch to the remote repository.
 
-    - Creating a branch locally does not automatically create the same branch on the remote repository.
-    - You must explicitly push the branch to the remote repository.
-
-    🧩 What EXACTLY Is Missing? 
+    🧩 ⁡⁣⁢⁣What EXACTLY Is Missing? ⁡
         - You are missing one thing:
 
-    - Pushing the branch to GitHub
+    - ⁡⁣⁣⁢Pushing the branch to GitHub⁡
 
-        🛠️ Correct Way to Push a New Branch
+        🛠️ ⁡⁣⁢⁣Correct Way to Push a New Branch⁡
             Step 1: Create branch locally
-                - git switch -c feature-login
+                - ⁡⁢⁢⁢git switch -c feature-login⁡
 
             Step 2: Make changes & commit
-                - git add .
-                - git commit -m "Add login feature"
+                - ⁡⁢⁢⁢git add .⁡
+                - ⁡⁢⁢⁢git commit -m "Add login feature"⁡
 
             Step 3: Push branch to GitHub (IMPORTANT)
-                - git push -u origin feature-login
+                - ⁡⁢⁢⁢git push -u origin feature-login⁡
 
 
-        📌 This command does 2 things:
+        📌 ⁡⁣⁢⁣This command does 2 things:⁡
             - Uploads branch to GitHub
             - Sets upstream (link)
 
-🧠 What is -u (Upstream)?
-    - Upstream links a local branch to a remote branch so Git knows where to push and pull by default.
-
-    - Simple Explanation
-
-    - After this:
+🧠 ⁡⁢⁣⁣𝗪𝗵𝗮𝘁 𝗶𝘀 -𝘂 (𝗨𝗽𝘀𝘁𝗿𝗲𝗮𝗺)?⁡
+    - ⁡⁣⁣⁢Upstream links a local branch to a remote branch so Git knows where to push and pull by default⁡.
+  
+    - ⁡⁣⁢⁣After this:⁡
         - git push
 
 
-    - Git automatically knows:
+    -⁡⁣⁢⁣ Git automatically knows:⁡
         - push to origin/feature-login
 
-    📊 LOCAL vs REMOTE BRANCH VISIBILITY
+    📊 ⁡⁣⁢⁣LOCAL vs REMOTE BRANCH VISIBILITY⁡
 
     Local Machine                 GitHub
     ┌──────────────┐              ┌──────────────┐
@@ -219,58 +218,57 @@
         │ git push -u
         ▼
     ┌──────────────┐              ┌──────────────┐
-    │ feature-login│ ───────────▶ │ feature-login│
+    │ feature-login│ ───────────▶│ feature-login│
     └──────────────┘              └──────────────┘
 
-    🔍 How to Check Branches
-        Local branches
-        git branch
+    🔍 ⁡⁣⁢⁣𝗛𝗼𝘄 𝘁𝗼 𝗖𝗵𝗲𝗰𝗸 𝗕𝗿𝗮𝗻𝗰𝗵𝗲𝘀⁡
+        Local branches (only on your machine)
+            - ⁡⁢⁢⁢git branch⁡
 
-        Remote branches
-        git branch -r
+        Remote branches (only on GitHub)
+            - ⁡⁢⁢⁢git branch -r⁡
 
-        Both
-        git branch -a
+        Both (local + remote)
+            - ⁡⁢⁢⁢git branch -a⁡
 
-    🧠 Why Git Works Like This (Design Reason)
+    🧠 ⁡⁢⁣⁣𝗪𝗵𝘆 𝗚𝗶𝘁 𝗪𝗼𝗿𝗸𝘀 𝗟𝗶𝗸𝗲 𝗧𝗵𝗶𝘀 (𝗗𝗲𝘀𝗶𝗴𝗻 𝗥𝗲𝗮𝘀𝗼𝗻)⁡
 
-    Git is:
+    ⁡⁣⁢⁣Git is:⁡
+        - Distributed
+        - Offline-first
 
-    Distributed
-    Offline-first
-
-    So:
+    ⁡⁣⁢⁣So⁡:
         - You can create unlimited local branches
         - Only publish when ready
         - 📌 This gives full control
 
-    🌍 Real-Life Analogy
+    🌍 ⁡⁣⁢⁣Real-Life Analogy⁡
         Think like WhatsApp Drafts:
             Draft message → local branch
             Send message → git push
             Others can see only after sending
 
-    ⚠️ Very Common Beginner Mistakes
+    ⚠️ ⁡⁣⁢⁣Very Common Beginner Mistakes⁡
         ❌ Thinking branch auto-appears on GitHub
-        ❌ Forgetting -u on first push
+        ❌ ⁡⁣⁣⁢𝗙𝗼𝗿𝗴𝗲𝘁𝘁𝗶𝗻𝗴 -𝘂 𝗼𝗻 𝗳𝗶𝗿𝘀𝘁 𝗽𝘂𝘀𝗵⁡
         ❌ Pushing to main accidentally
         ❌ Editing GitHub UI without pulling locally
 
-📝 Quick Summary (Revision Notes)
+[-----------------------------------------------------------------------------]
+
+📝 ⁡⁢⁣⁣𝗤𝘂𝗶𝗰𝗸 𝗦𝘂𝗺𝗺𝗮𝗿𝘆 (𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻 𝗡𝗼𝘁𝗲𝘀)⁡
     - Branches are local by default
     - GitHub doesn’t know local branches
     - New branch must be pushed explicitly
-    - git push -u origin branch-name is required once
-    - After that, normal git push works
+    - ⁡⁢⁢⁢git push -u origin branch-name⁡ is required once
+    - After that, normal ⁡⁢⁢⁢git push⁡ works
 
-🎯 After This Explanation, You Should Clearly Know
+🎯 ⁡⁣⁢⁣After This Explanation, You Should Clearly Know⁡
     ✔ Why branch wasn’t visible
     ✔ What command was missing
     ✔ How GitHub gets new branches
 
 [-----------------------------------------------------------------------------]
-
-
 
 📝 ⁡⁢⁣⁣𝗖𝗵𝗮𝗽𝘁𝗲𝗿 𝟭𝟬 – 𝗡𝗼𝘁𝗲𝘀 (𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻 𝗥𝗲𝗮𝗱𝘆)⁡
 
@@ -285,4 +283,4 @@
         ✔ How teams work in parallel.
         ✔ Difference between `main` & feature branches.
 
-{---------------------------------END-----------------------------------}
+{---------------------------------⁡⁢⁣⁢𝗘𝗡𝗗⁡-----------------------------------}
