@@ -127,6 +127,15 @@
 
         - Merge feature-login branch code/changes to main branch -> ⁡⁢⁢⁢git switch main⁡ -> ⁡⁢⁢⁢git merge feature-login⁡
 
+            ------------------------------------------------------------------------------------------
+                #⁡⁢⁣⁢ 𝗖𝗼𝗻𝗳𝘂𝘀𝗶𝗼𝗻 𝗣𝗼𝗶𝗻𝘁⁡:- ⁡⁢⁢⁢git switch main⁡ -> after that should I do ⁡⁢⁢⁢git pull/fetch⁡
+                => ⁡⁣⁣⁢𝗜𝘁 𝗱𝗲𝗽𝗲𝗻𝗱𝘀 𝗼𝗻 𝘆𝗼𝘂𝗿 𝘁𝗲𝗮𝗺 𝘄𝗼𝗿𝗸𝗳𝗹𝗼𝘄 𝗮𝗻𝗱 𝗵𝗼𝘄 𝗳𝗿𝗲𝗾𝘂𝗲𝗻𝘁𝗹𝘆 𝘆𝗼𝘂𝗿 𝘁𝗲𝗮𝗺 𝗺𝗲𝗺𝗯𝗲𝗿𝘀 𝗽𝘂𝘀𝗵 𝗰𝗵𝗮𝗻𝗴𝗲𝘀 𝘁𝗼 𝗺𝗮𝗶𝗻 𝗯𝗿𝗮𝗻𝗰𝗵. 𝗜𝗳 𝘆𝗼𝘂𝗿 𝘁𝗲𝗮𝗺 𝗺𝗲𝗺𝗯𝗲𝗿𝘀 𝗽𝘂𝘀𝗵 𝗰𝗵𝗮𝗻𝗴𝗲𝘀 𝘁𝗼 𝗺𝗮𝗶𝗻 𝗯𝗿𝗮𝗻𝗰𝗵 𝗳𝗿𝗲𝗾𝘂𝗲𝗻𝘁𝗹𝘆 𝘁𝗵𝗲𝗻 𝗶𝘁 𝗶𝘀 𝗯𝗲𝘁𝘁𝗲𝗿 𝘁𝗼 𝗱𝗼 𝗴𝗶𝘁 𝗽𝘂𝗹𝗹/𝗳𝗲𝘁𝗰𝗵 𝗯𝗲𝗳𝗼𝗿𝗲 𝗺𝗲𝗿𝗴𝗶𝗻𝗴 𝘁𝗼 𝗮𝘃𝗼𝗶𝗱 𝗰𝗼𝗻𝗳𝗹𝗶𝗰𝘁𝘀. 𝗕𝘂𝘁 𝗶𝗳 𝘆𝗼𝘂𝗿 𝘁𝗲𝗮𝗺 𝗺𝗲𝗺𝗯𝗲𝗿𝘀 𝗱𝗼𝗻'𝘁 𝗽𝘂𝘀𝗵 𝗰𝗵𝗮𝗻𝗴𝗲𝘀 𝘁𝗼 𝗺𝗮𝗶𝗻 𝗯𝗿𝗮𝗻𝗰𝗵 𝗳𝗿𝗲𝗾𝘂𝗲𝗻𝘁𝗹𝘆 𝘁𝗵𝗲𝗻 𝘆𝗼𝘂 𝗰𝗮𝗻 𝗱𝗶𝗿𝗲𝗰𝘁𝗹𝘆 𝗺𝗲𝗿𝗴𝗲 𝘄𝗶𝘁𝗵𝗼𝘂𝘁 𝗽𝘂𝗹𝗹𝗶𝗻𝗴/𝗳𝗲𝘁𝗰𝗵𝗶𝗻𝗴.⁡
+            ------------------------------------------------------------------------------------------
+
+        - If there is no conflict then it will be merged successfully and you can see the changes on main branch locally but not on GitHub because you haven't pushed main to GitHub yet.
+        - If there is a conflict then you have to resolve the conflict manually and then commit the changes and then push main to GitHub.
+            
+
             ex:- ⁡⁢⁢⁢git merge github ⁡
                 Updating d4bc0f1..6e66d88
                 Fast-forward
@@ -143,6 +152,7 @@
                  nothing to commit, working tree clean   
 
         - Your main branch code/changes are not reflected yet on GitHub because you haven't pushed main to GitHub yet.
+            >⁡⁢⁣⁢ 𝗗𝗼𝗻'𝘁 𝗻𝗲𝗲𝗱 𝘁𝗼 𝗽𝗲𝗿𝗳𝗼𝗿𝗺⁡ ⁡⁢⁢⁢git add .⁡ and ⁡⁢⁢⁢git commit⁡ b⁡⁣⁣⁢𝗲𝗰𝗮𝘂𝘀𝗲 𝘆𝗼𝘂 𝗵𝗮𝘃𝗲 𝗮𝗹𝗿𝗲𝗮𝗱𝘆 𝗰𝗼𝗺𝗺𝗶𝘁𝘁𝗲𝗱 𝘁𝗵𝗲 𝗰𝗵𝗮𝗻𝗴𝗲𝘀 𝘄𝗵𝗶𝗹𝗲 𝗿𝗲𝘀𝗼𝗹𝘃𝗶𝗻𝗴 𝘁𝗵𝗲 𝗰𝗼𝗻𝗳𝗹𝗶𝗰𝘁.⁡ 
         - Push main to GitHub -> ⁡⁢⁢⁢git push origin main⁡
 
         - After that check the status to ensure that changes are pushed successully on github -> ⁡⁢⁢⁢git status⁡
